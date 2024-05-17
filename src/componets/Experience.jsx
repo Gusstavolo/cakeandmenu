@@ -48,7 +48,7 @@ export const Experience = () => {
       <ambientLight intensity={1.7} />
       <directionalLight castShadow shadow-camera-left={0} shadow-camera-right={0} shadow-camera-top={0} shadow-camera-bottom={-1} />
       <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
-      <BOLO position={[0, 0.5, -1.2]} rotation={[0.3, 3, 0]} />
+      <BOLO position={[0, 0.65, -1.2]} rotation={[0.3, 3, 0]} />
       </>
             
     )
