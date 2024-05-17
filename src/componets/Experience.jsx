@@ -9,7 +9,7 @@ import { useFrame } from '@react-three/fiber';
 
 export function BOLO(props) {
   const meshRef = useRef();
-  const { nodes, materials } = useGLTF('public/Componets/bolo2.glb')
+  const { nodes, materials } = useGLTF('public/models/bolo2.glb')
 
   useFrame(() => {
     if (meshRef.current) {
@@ -36,7 +36,7 @@ export function BOLO(props) {
   )
 }
 
-useGLTF.preload('public/Componets/bolo2.glb')
+useGLTF.preload('public/models/bolo2.glb')
 
 
 export const Experience = () => {
