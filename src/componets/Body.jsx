@@ -14,11 +14,12 @@ export function Body() {
         <div className='banner' /> 
 
          <div className='d3_' >
-            <div className='d3_backg'></div>
+            
             <div className='d3_backg_main'></div>
             
             <Canvas colorManagement shadows shadowMap  >
             <Experience></Experience>
+            
             </Canvas>
             
         </div>

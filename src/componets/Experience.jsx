@@ -3,14 +3,26 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import { Box, Plane } from "@react-three/drei";
+import { useFrame } from '@react-three/fiber';
 
 
+
+import { Canvas } from "@react-three/fiber";
 
 
 export function BOLO(props) {
+  const meshRef = useRef();
   const { nodes, materials } = useGLTF('./public/Componets/bolo2.glb')
+
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.002;
+    }
+  });
+
+
   return (
-    <group {...props} dispose={null}>
+    <group ref={meshRef} {...props} dispose={null}>
       <mesh receiveShadow geometry={nodes.BASE1BOLO.geometry} material={materials.BASEBOLO} material-color = "#7a5239" position={[0, 0.596, 0]} scale={[1.08, 0.527, 1.08]} />
       <mesh receiveShadow geometry={nodes.RECHEIO001.geometry} material={materials.recheio} position={[0, 0.545, 0]} scale={[1.08, 0.527, 1.08]} />
       <mesh receiveShadow geometry={nodes.RECHEIO.geometry} material={materials.recheio} position={[0, 0.169, 0]} scale={[1.08, 0.527, 1.08]} />
@@ -31,17 +43,16 @@ useGLTF.preload('./public/Componets/bolo2.glb')
 
 
 export const Experience = () => {
-
+  
     
     return (
-            <> 
-            <BOLO position={[0, -1.4, 0]} rotation = {[0,3,0] } />
-
-            <ambientLight intensity={1.7}  ></ambientLight>
-            <directionalLight castShadow shadow-camera-left={0} shadow-camera-right={0} shadow-camera-top={0} shadow-camera-bottom={-1} />
-            <PerspectiveCamera  makeDefault rotation = {[0,0,0] } position={[0, 2, 2.7]} />
-            <OrbitControls autoRotate></OrbitControls>
-            </>
+    <>
+     
+      <ambientLight intensity={1.7} />
+      <directionalLight castShadow shadow-camera-left={0} shadow-camera-right={0} shadow-camera-top={0} shadow-camera-bottom={-1} />
+      <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
+      <BOLO position={[0, 0.5, -1.2]} rotation={[0.3, 3, 0]} />
+      </>
             
     )
 }
