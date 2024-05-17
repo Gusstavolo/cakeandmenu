@@ -3,101 +3,107 @@
   margin: 0;
 }
 @media screen and (max-width: 1440px) {
-  *{     overflow-x: hidden;
-  }
+  
   .banner {
+    margin-top: 0;
+      width: 100vw;
+      height: 200px;
+      background: url("./img/cidaliabanner.png") no-repeat;
+      background-size: 100%;
+      
+    }
+    
+    .d3_ {
+      
+      display: flex;
+     align-items: center;
+     justify-content: center;
+      margin-top: -35px;
+      position: absolute;
+      box-shadow: 20px;
+      width: 100vw;
+      height: 285px;
+      opacity: 1;
+      
+    }
    
+    .d3_backg {
     
-    width: 100vw;
-    height: 120px;
-    background: url("./img/cidaliabanner.png") no-repeat;
-    background-size: 100%;
-    background-position: 0px -23px;
-  }
-  .CanvasS{
+      position: absolute;
+      top: 120px;
+      width: 200px;
+      height: 200px;
+      border-radius: 90px;
+      background-color: #f3d1d7;
+      transform: rotateX(45deg);
+      box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.411);
+    }
+    .body_Main {
+      
+      
+      display: flex;
+      
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      background-color: #f3d1d7;
+     
+  
+    }
+    .body_main3dcake {
+      display: flex;
+      
+      width: 100vw;
+      height: 250px;
+      box-shadow:0px 0px 25px 7px rgba(0, 0, 0, 0.123) inset;
+      background-color: #d57692;
+    }
+    .d3_body_Main {
+      
+      width: 100vw;
+      height: 216px;
+      
+      background: url("./img/TELA3D500PX.png") no-repeat;
+      background-size: 100%;
+    }
+    .config_Main{
+      display: flex;
+      
+      width: 100vw;
+      height: 30vh;
+    
+      
+    }
+   .configcake_main {
     display: flex;
-    justify-content: center;
-        align-items: center;
-        align-content: center;
-        flex-direction: column;
-    position: absolute;
-    z-index: 2;
+      
     width: 100vw;
-    height: 220px;
-  }
-  .d3_ {
-    padding-top: 100px;
-    display: flex;
-    justify-content: center;
-        align-items: center;
-        align-content: center;
-        flex-direction: column;
-    position: absolute;
-    box-shadow: 20px;
-    width: 100vw;
-    height: 270px;
-  }
-  .d3_backg {
-    position: absolute;
-    margin-top: 150px;
-    width: 180px;
-    height: 110px;
-    border-radius: 80px;
-    background-color: #f3d1d7;
-    
-    
-  }
-  .body_Main {
-    
-    
-    display: flex;
-    
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    background-color: #f3d1d7;
-
-  }
-  .d3_body_Main {
-    
-    width: 100vw;
-    height: 216px;
-    
-    background: url("./img/TELA3D500PX.png") no-repeat;
-    background-size: 100%;
-  }
-  .config_Main{
-    display: flex;
-    
-    width: 100vw;
-    height: 40vh;
+    height: 30vh;
     background-color: #d57692;
-  }
+   }
 
 }
 
 @media screen and (max-width: 440px) {
   .App {
-    width: 100vw;
-    height: 100vh;
+    
+    
   }
   .banner {
-   
-    
+  margin-top: 0;
     width: 100vw;
-    height: 120px;
+    height: 200px;
     background: url("./img/cidaliabanner.png") no-repeat;
     background-size: 100%;
-    background-position: 0px -23px;
+    
   }
   
   .d3_ {
     
     display: flex;
-    justify-content: center;
-        align-items: center;
-        align-content: center;
-        flex-direction: column;
+   align-items: center;
+   justify-content: center;
+    margin-top: -35px;
     position: absolute;
     box-shadow: 20px;
     width: 100vw;
@@ -105,14 +111,16 @@
     opacity: 1;
     
   }
+ 
   .d3_backg {
+  
     position: absolute;
-    margin-top: 150px;
-    width: 180px;
-    height: 110px;
-    border-radius: 80px;
+    top: 120px;
+    width: 200px;
+    height: 200px;
+    border-radius: 90px;
     background-color: #f3d1d7;
-    
+    transform: rotateX(45deg);
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.411);
   }
   .body_Main {
@@ -131,7 +139,8 @@
     display: flex;
     
     width: 100vw;
-    height: 265px;
+    height: 250px;
+    box-shadow:0px 0px 25px 7px rgba(0, 0, 0, 0.123) inset;
     background-color: #d57692;
   }
   .d3_body_Main {
@@ -150,20 +159,17 @@
   
     
   }
-
+ .configcake_main {
+  display: flex;
+    
+  width: 100vw;
+  height: 30vh;
+  background-color: #d57692;
+ }
 }
 @media screen and (max-width: 360px) {
 
-  .d3_body_Main {
-    width: 100vw;
-    height: 200px;
-    z-index: 1;
-    background: url("./img/TELA3D500PX.png") no-repeat;
-    background-size: 100%;
-  }
+  
 
 
-}
-test {
-  background: url("../public/Componets/bolo2.glb");
 }

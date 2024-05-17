@@ -10,16 +10,22 @@ export function Body() {
 
     return (
         <>
-        <div className='d3_' >
+      
+        <div className='banner' /> 
+
+         <div className='d3_' >
             <div className='d3_backg'></div>
+            <div className='d3_backg_main'></div>
+            
             <Canvas colorManagement shadows shadowMap  >
             <Experience></Experience>
             </Canvas>
             
         </div>
-        <header className='banner' />
+
         <div className='body_main3dcake'></div>
-        
+        <div className='configcake_main'></div>
+       
         
         
         </>
