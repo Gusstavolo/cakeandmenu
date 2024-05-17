@@ -39,7 +39,7 @@ export const Experience = () => {
 
             <ambientLight intensity={1.7}  ></ambientLight>
             <directionalLight castShadow shadow-camera-left={0} shadow-camera-right={0} shadow-camera-top={0} shadow-camera-bottom={-1} />
-            <PerspectiveCamera  makeDefault rotation = {[0,0,0] } position={[0, 2, 3.4]} />
+            <PerspectiveCamera  makeDefault rotation = {[0,0,0] } position={[0, 2, 2.7]} />
             <OrbitControls autoRotate></OrbitControls>
             </>
             

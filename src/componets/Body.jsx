@@ -17,19 +17,10 @@ export function Body() {
             </Canvas>
             
         </div>
-        <div className='banner' />
+        <header className='banner' />
+        <div className='body_main3dcake'></div>
         
-        <div className='body_Main'>
-            
-               
-                    
-            <div className='config_Main'>
-                
-            </div>
-
-
-
-        </div>
+        
         
         </>
     )
