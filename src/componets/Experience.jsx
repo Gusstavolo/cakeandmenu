@@ -1,13 +1,10 @@
-import { MeshNormalMaterial } from "three";
-import React, { useRef } from 'react'
+import  { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
-import { Box, Plane } from "@react-three/drei";
 import { useFrame } from '@react-three/fiber';
 
 
 
-import { Canvas } from "@react-three/fiber";
 
 
 export function BOLO(props) {

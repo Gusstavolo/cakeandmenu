@@ -1,8 +1,6 @@
 import '../App.css';
 import { Canvas } from '@react-three/fiber';
 import { Experience } from './Experience';
-import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
-//import { SpotLight,AmbientLight, PointLight } from "three";
 
 export function Body() {
 
@@ -18,7 +16,7 @@ export function Body() {
             <div className='d3_backg_main'></div>
             
             <Canvas >
-            <Experience></Experience>
+                <Experience></Experience>
             
             </Canvas>
             
