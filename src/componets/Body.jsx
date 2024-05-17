@@ -17,7 +17,7 @@ export function Body() {
             
             <div className='d3_backg_main'></div>
             
-            <Canvas colorManagement shadows shadowMap  >
+            <Canvas >
             <Experience></Experience>
             
             </Canvas>
