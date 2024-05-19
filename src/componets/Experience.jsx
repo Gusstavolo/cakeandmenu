@@ -1,4 +1,4 @@
-import  { useRef } from 'react'
+import  { useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
@@ -52,38 +52,28 @@ export function Cake3d(props) {
 
 useGLTF.preload('/models/bolonew.glb')
 
-
-export function BOLO(props) {
-  const meshRef = useRef();
-  const { nodes, materials } = useGLTF('/models/bolo2.glb')
-
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y += 0.002;
-    }
-  });
-
-
+export function CakeSlice(props) {
+  const { nodes, materials } = useGLTF('/models/boloslice.glb')
   return (
-    <group ref={meshRef} {...props} dispose={null}>
-      <mesh receiveShadow geometry={nodes.BASE1BOLO.geometry} material={materials.BASEBOLO} material-color = "#7a5239" position={[0, 0.596, 0]} scale={[1.08, 0.527, 1.08]} />
-      <mesh receiveShadow geometry={nodes.RECHEIO001.geometry} material={materials.recheio} position={[0, 0.545, 0]} scale={[1.08, 0.527, 1.08]} />
-      <mesh receiveShadow geometry={nodes.RECHEIO.geometry} material={materials.recheio} position={[0, 0.169, 0]} scale={[1.08, 0.527, 1.08]} />
-      <mesh receiveShadow geometry={nodes.COBERTURA1.geometry} material={materials.COBERTURA} position={[0, 0.596, 0]} scale={[1.098, 0.536, 1.098]} />
-      <mesh receiveShadow geometry={nodes.BASE2BOLO.geometry} material={materials.BASEBOLO} position={[0, 1.592, 0]} scale={[0.765, 0.373, 0.765]} />
-      <mesh receiveShadow geometry={nodes.RECHEIO2001.geometry} material={materials.recheio} material-color = "#f5ddb6" position={[0, 1.556, 0]} scale={[0.765, 0.373, 0.765]} />
-      <mesh receiveShadow geometry={nodes.RECHEIO2.geometry} material={materials.recheio} position={[0, 1.289, 0]} scale={[0.765, 0.373, 0.765]} />
-      <mesh receiveShadow geometry={nodes.COBERTURA2.geometry} material={materials.COBERTURA} position={[0, 1.592, 0]} scale={[0.777, 0.38, 0.777]} />
-      <mesh receiveShadow geometry={nodes.BRIGADEIRO.geometry} material={materials.BriGadeiros} material-color = "#503525" position={[0.89, 1.276, 0.038]} scale={0.123} />
-      <mesh receiveShadow geometry={nodes.TOPO1.geometry} material={materials.TOPO} position={[0.435, 1.516, 0]} rotation={[Math.PI / 2, 0, -3.069]} scale={0.95} />
-      <mesh receiveShadow geometry={nodes.TOPO1001.geometry} material={materials.TOPO} position={[0.435, 2.292, 0]} rotation={[Math.PI / 2, 0, -3.069]} scale={0.95} />
-      <mesh receiveShadow geometry={nodes.BRIGADEIRO001.geometry} material={materials.BriGadeiros} position={[0.574, 2.059, 0.075]} scale={0.078} />
+    <group {...props} dispose={null}>
+      <group rotation={[Math.PI / 2, 0, 0]} scale={0.81}>
+        <mesh geometry={nodes.Circle008.geometry} material={materials.bolo1} />
+        <mesh geometry={nodes.Circle008_1.geometry} material={materials.recheio} />
+      </group>
+      <group rotation={[Math.PI / 2, 0, 0]} scale={0.61}>
+        <mesh receiveShadow geometry={nodes.Circle004_Circle027_1.geometry} material={materials['Material.009']} />
+        <mesh receiveShadow geometry={nodes.Circle004_Circle027_2.geometry} material={materials['Material.016']} />
+      </group>
+      <mesh geometry={nodes.strawberry008.geometry} material={materials['Strawberry.001']} rotation={[0.311, 0, Math.PI / 2]} scale={0.008} />
+      <mesh geometry={nodes.BRIGADEIRO006.geometry} material={materials['brigaderio.001']} scale={0.082} />
+      <mesh geometry={nodes.BRIGADEIRO007.geometry} material={materials['brigaderio.001']} scale={0.076} />
+      <mesh receiveShadow geometry={nodes.BRIGADEIRO008.geometry} material={materials['brigaderio.001']} scale={0.068} />
+      <mesh receiveShadow geometry={nodes.Circle001.geometry} material={materials.cobertura} rotation={[Math.PI / 2, 0, 0]} scale={0.81} />
     </group>
   )
 }
 
-useGLTF.preload('/models/bolo2.glb')
-
+useGLTF.preload('/models/boloslice.glb')
 
 export const Experience = () => {
   
@@ -94,9 +84,21 @@ export const Experience = () => {
 
       <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
       <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
-      <Cake3d  position={[0, 1.66, 1]} rotation={[0.3, 3, 0]} />
+      <Cake3d  position={[0, 1.56, 1.2]} rotation={[0.3, 3, 0]} />
       
       </>
             
     )
+}
+export function OverlaySlice() {
+    
+  return(
+     <>
+     <ambientLight intensity={3}></ambientLight>
+     <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
+      <directionalLight castShadow intensity={8} position={[0.1,0.5, 0.4]} ></directionalLight>
+      <CakeSlice  position={[0, 1.9, 1.4]} rotation={[0.6, 0.9, 0]} />
+        
+     </>
+  )
 }
