@@ -45,7 +45,7 @@ export function Cake3d(props) {
       <mesh  geometry={nodes.BRIGADEIRO2001.geometry} material={materials.brigaderio} scale={0.059} />
       <mesh  geometry={nodes.BRIGADEIRO2.geometry} material={materials.brigaderio} scale={0.059} />
       <mesh  geometry={nodes.BRIGADEIRO2002.geometry} material={materials.brigaderio} scale={0.059} />
-      <mesh receiveShadow geometry={nodes.Base_Cake.geometry} material={materials.Default} rotation={[Math.PI / 2, 0, 0]} scale={3.261} />
+      <mesh receiveShadow geometry={nodes.Base_Cake.geometry} material={materials.Default} position={[0, 0, 0.02]} rotation={[Math.PI / 2, 0, 0]} scale={3.261} />
     </group>
   )
 }
@@ -95,6 +95,7 @@ export const Experience = () => {
       <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
       <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
       <Cake3d  position={[0, 1.66, 1]} rotation={[0.3, 3, 0]} />
+      
       </>
             
     )
