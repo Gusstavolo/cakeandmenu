@@ -14,8 +14,10 @@ export function Body() {
          <div className='d3_' >
             
             <div className='d3_backg_main'></div>
+            <div className='d3_backg'></div>
             
             <Canvas >
+
                 <Experience></Experience>
             
             </Canvas>
