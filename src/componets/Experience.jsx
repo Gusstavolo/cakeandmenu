@@ -3,7 +3,8 @@ import { useGLTF } from '@react-three/drei'
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { DirectionalLight } from 'three';
-
+import { Canvas } from '@react-three/fiber';
+import { Plane } from '@react-three/drei';
 export function Cake3d(props) {
   const { nodes, materials } = useGLTF('/models/bolonew.glb')
   const meshRef = useRef();
@@ -17,7 +18,7 @@ export function Cake3d(props) {
 
 
   return (
-    <group castShadow receiveShadow ref={meshRef} {...props} dispose={null}>
+    <group  ref={meshRef} {...props} dispose={null}>
       <mesh  geometry={nodes.bolo1.geometry} material={materials.bolo1} rotation={[Math.PI / 2, 0, 0]} scale={[6.294, 6.294, 12.011]} />
       <mesh  geometry={nodes.cobertura.geometry} material={materials.cobertura} rotation={[Math.PI / 2, 0, 0]} scale={[6.294, 6.294, 6.844]} />
       <mesh  geometry={nodes.recheio.geometry} material={materials.recheio} rotation={[Math.PI / 2, 0, 0]} scale={[6.294, 6.294, 12.011]} />
@@ -54,21 +55,26 @@ useGLTF.preload('/models/bolonew.glb')
 
 export function CakeSlice(props) {
   const { nodes, materials } = useGLTF('/models/boloslice.glb')
+  const meshRef = useRef();
+  
+
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.002;
+    }
+  });
   return (
-    <group {...props} dispose={null}>
+    <group ref={meshRef} {...props} dispose={null}>
       <group rotation={[Math.PI / 2, 0, 0]} scale={0.81}>
-        <mesh geometry={nodes.Circle008.geometry} material={materials.bolo1} />
-        <mesh geometry={nodes.Circle008_1.geometry} material={materials.recheio} />
+        <mesh castShadow receiveShadow geometry={nodes.Circle008.geometry} material={materials.bolo1} />
+        <mesh castShadow receiveShadow geometry={nodes.Circle008_1.geometry} material={materials.recheio} />
       </group>
-      <group rotation={[Math.PI / 2, 0, 0]} scale={0.61}>
-        <mesh receiveShadow geometry={nodes.Circle004_Circle027_1.geometry} material={materials['Material.009']} />
-        <mesh receiveShadow geometry={nodes.Circle004_Circle027_2.geometry} material={materials['Material.016']} />
-      </group>
-      <mesh geometry={nodes.strawberry008.geometry} material={materials['Strawberry.001']} rotation={[0.311, 0, Math.PI / 2]} scale={0.008} />
-      <mesh geometry={nodes.BRIGADEIRO006.geometry} material={materials['brigaderio.001']} scale={0.082} />
-      <mesh geometry={nodes.BRIGADEIRO007.geometry} material={materials['brigaderio.001']} scale={0.076} />
-      <mesh receiveShadow geometry={nodes.BRIGADEIRO008.geometry} material={materials['brigaderio.001']} scale={0.068} />
-      <mesh receiveShadow geometry={nodes.Circle001.geometry} material={materials.cobertura} rotation={[Math.PI / 2, 0, 0]} scale={0.81} />
+     
+      <mesh castShadow receiveShadow geometry={nodes.strawberry008.geometry} material={materials['Strawberry.001']} rotation={[0.311, 0, Math.PI / 2]} scale={0.008} />
+      <mesh castShadow receiveShadow geometry={nodes.BRIGADEIRO006.geometry} material={materials['brigaderio.001']} scale={0.082} />
+      <mesh castShadow receiveShadow geometry={nodes.BRIGADEIRO007.geometry} material={materials['brigaderio.001']} scale={0.076} />
+      <mesh castShadow receiveShadow geometry={nodes.BRIGADEIRO008.geometry} material={materials['brigaderio.001']} scale={0.068} />
+      <mesh castShadow receiveShadow geometry={nodes.Circle001.geometry} material={materials.cobertura} rotation={[Math.PI / 2, 0, 0]} scale={0.81} />
     </group>
   )
 }
@@ -93,12 +99,25 @@ export const Experience = () => {
 export function OverlaySlice() {
     
   return(
-     <>
-     <ambientLight intensity={3}></ambientLight>
+     <Canvas shadows>
+     
      <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
-      <directionalLight castShadow intensity={8} position={[0.1,0.5, 0.4]} ></directionalLight>
+      <pointLight intensity={20} position={[0, 0, 3]}></pointLight>
+      <directionalLight castShadow
+    
+       intensity={5}
+       position={[0, -2, 1.5]}
+       
+      ></directionalLight>
+      <directionalLight castShadow
+    
+    intensity={5}
+    position={[0, 5, 3]} />
+    
+   
+    
       <CakeSlice  position={[0, 1.9, 1.4]} rotation={[0.6, 0.9, 0]} />
         
-     </>
+     </Canvas>
   )
 }

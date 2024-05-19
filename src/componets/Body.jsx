@@ -55,9 +55,9 @@ export function Body() {
         {isLayerOpen && (
                 <div className="layer_filling">
                      <div className="layer_filling_top">
-                        <Canvas shadows>
+                        
                            <OverlaySlice></OverlaySlice> 
-                        </Canvas>
+                        
                         
                         </div>
                     
