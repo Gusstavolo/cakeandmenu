@@ -1,7 +1,6 @@
 import '../App.css';
 import { Canvas } from '@react-three/fiber';
 import { Experience } from './Experience';
-
 export function Body() {
 
 
@@ -16,16 +15,22 @@ export function Body() {
             <div className='d3_backg_main'></div>
             <div className='d3_backg'></div>
             
-            <Canvas >
+            <Canvas shadows async>
 
                 <Experience></Experience>
-            
+
             </Canvas>
             
         </div>
 
         <div className='body_main3dcake'></div>
-        <div className='configcake_main'></div>
+        <div className='configcake_main'>
+
+
+
+
+            
+        </div>
        
         
         
