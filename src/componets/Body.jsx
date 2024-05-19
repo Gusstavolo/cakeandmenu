@@ -18,22 +18,24 @@ export function Body() {
 
             </Canvas>
             <div className='options_main'>
-                <div className='options_cakecover'>
-                <div className='options_top'>
-                        <div className='options_top_o'></div>
-                    </div>
-                </div>
-                <div className='options_filling'>
+                <div className='options_main_botton'>
+                    <div className='options_cakecover'>
                     <div className='options_top'>
-                        <div className='options_top_o'></div>
+                            <div className='options_top_o'></div>
+                        </div>
                     </div>
-                </div>
-                <div className='options_flavor'>
-                  <div className='options_top'>
-                  <div className='options_top_o'></div>
-                  </div>
-                </div>
+                    <div className='options_filling'>
+                        <div className='options_top'>
+                            <div className='options_top_o'></div>
+                        </div>
+                    </div>
+                    <div className='options_flavor'>
+                    <div className='options_top'>
+                    <div className='options_top_o'></div>
+                    </div>
+                    </div>
 
+                </div>
             </div>
         </div>
 

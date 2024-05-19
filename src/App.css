@@ -125,6 +125,7 @@
   }
   .options_main {
     position: absolute;
+    display: flex;
     top: -20px;
     width: 100vw;
     height: 420px;
@@ -143,6 +144,11 @@
     border-top-right-radius: 10px;
 
   }
+  .options_main_botton {
+    display: flex;
+    width: 100%;
+    margin-top: 95%;
+  }
   .options_top_o {
     width: 15px;
     height: 15px;
@@ -153,10 +159,10 @@
     box-shadow: 0px 5px 1px rgba(0, 0, 0, 0.459);
   }
   .options_cakecover {
-    position: relative;
+   
     scale: 0.8;
     top: 111px;
-    left: 280px;
+    left: 250px;
     width: 140px;
     height: 120px;
     border-top-right-radius: 10px;
@@ -168,7 +174,7 @@
 
   }
   .options_filling {
-    position: relative;
+    
     top: 100px;
     left: -5px;
     scale: 0.8;
@@ -180,12 +186,12 @@
     box-shadow: 0px 5px 1px rgba(0, 0, 0, 0.164);
   }
   .options_flavor {
-    position: relative;
+    
     top: 80px;
-    left: 270px;
+    left: 250px;
     width: 140px;
     height: 120px;
-    scale: 0.9;
+    scale: 0.8;
     border-top-right-radius: 10px;
 
     border-top-left-radius: 10px;
