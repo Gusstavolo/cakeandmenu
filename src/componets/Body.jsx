@@ -5,14 +5,26 @@ import React, { useState } from 'react';
 
 
 
-
+function BlockOptions({  onClick }) {
+    return(
+        <div className='options_cakecover' onClick={onClick}>
+                        <div className='options_top'>
+                            <div className='options_top_o'></div>
+                        </div>
+        </div>
+    )
+}
 
 export function Body() {
 
     const [isLayerOpen, setIsLayerOpen] = useState(false);
+    const [isLayerOpenTOP, setIsLayerOpenTOP] = useState(false);
 
     const toggleLayer = () => {
         setIsLayerOpen(!isLayerOpen);
+    };
+    const toggleLayerTOP = () => {
+        setIsLayerOpenTOP(!isLayerOpenTOP);
     };
 
     return (
@@ -29,40 +41,34 @@ export function Body() {
             </Canvas>
             <div className='options_main'>
                 <div className='options_main_botton'>
-                    <div className='options_cakecover'>
-                    <div className='options_top'>
-                            <div className='options_top_o'></div>
-                        </div>
-                    </div>
-                    <div className='options_filling' onClick={toggleLayer}>
-                        <div className='options_top'>
-                            <div className='options_top_o'/>
-                        </div>
 
+                    <BlockOptions onClick={toggleLayerTOP} />
+                    <BlockOptions onClick={toggleLayer}></BlockOptions>
+                    <BlockOptions></BlockOptions>
 
-
-                        
-                    </div>
-                    <div className='options_flavor'>
-                    <div className='options_top'><div className='options_top_o'></div>
-                    </div>
-                    </div>
+                 
 
                 </div>
             </div>
         </div>
         
-        {isLayerOpen && (
+            {isLayerOpen && (
                 <div className="layer_filling">
                      <div className="layer_filling_top">
                         
                            <OverlaySlice></OverlaySlice> 
                         
-                        
                         </div>
                     
                     
                     <button onClick={toggleLayer}>Fechar</button>
+                </div>
+            )}
+             {isLayerOpenTOP && (
+                <div className="layer_cakecover">
+                     
+                    
+                    <button onClick={toggleLayerTOP}>Fechar</button>
                 </div>
             )}
 
