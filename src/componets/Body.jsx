@@ -1,13 +1,14 @@
 import '../App.css';
 import { Canvas } from '@react-three/fiber';
 import { Experience, OverlaySlice } from './Experience';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 
 
 function BlockOptions({  onClick }) {
+   
     return(
-        <div className='options_cakecover' onClick={onClick}>
+        <div className='options_cakecover' onClick={onClick} >
                         <div className='options_top'>
                             <div className='options_top_o'></div>
                         </div>

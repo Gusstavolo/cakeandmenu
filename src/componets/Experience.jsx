@@ -2,9 +2,9 @@ import  { useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { DirectionalLight } from 'three';
 import { Canvas } from '@react-three/fiber';
-import { Plane } from '@react-three/drei';
+import { Text3D, Center } from '@react-three/drei';
+
 export function Cake3d(props) {
   const { nodes, materials } = useGLTF('/models/bolonew.glb')
   const meshRef = useRef();
@@ -90,7 +90,13 @@ export const Experience = () => {
 
       <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
       <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
+       
       <Cake3d  position={[0, 1.56, 1.2]} rotation={[0.3, 3, 0]} />
+      
+        <Text3D letterSpacing={-0.06} size={0.5} font="/Inter_Bold.json">
+          top left
+          <meshStandardMaterial color="white" />
+        </Text3D>
       
       </>
             
