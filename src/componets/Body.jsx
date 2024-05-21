@@ -42,6 +42,17 @@ export function Body() {
             </Canvas>
             <div className='options_main'>
                 <div className='options_main_top'>
+                    <div className='resultSlice'>
+                        <div>
+                            <h1 className='poetsenTxt txtfont'>Fatias</h1>
+                             <h1 className='poetsenTxt txtfontP'>32</h1>
+                        </div>
+                        
+                        <div>
+                            <h1 className='poetsenTxt txtfont'>Andar</h1>
+                            <h1 className='poetsenTxt txtfontP'>Sim</h1>
+                        </div>
+                    </div>
                     <div className='resultPrice'>
                         <h1 className='poetsenTxt txtfont'>Total</h1>
                         <h1 className='poetsenTxt txtfontP'>R$ 100,50</h1>
