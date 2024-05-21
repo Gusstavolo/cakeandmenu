@@ -103,31 +103,63 @@ export const Experience = () => {
       <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
       <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
        
-      <Cake3d  position={[0, 1.6, 1]} rotation={[0.3, 3, 0]} />
-      <group rotation={[0.3, 0, 0]} position={[0, 2.55, 1.3]} ref={meshRef}>
-        <Center >
-          <Text3D 
-          font={fontdanci} 
-          scale={0.098} 
-         maxWidth={[-w / 5, -h * 2, 3]}
-        >
-          Gustavo
-         <meshNormalMaterial color="white"    />
-      </Text3D>
-      </Center>
-      <mesh position={[0, -0.1, 0.1]}>
-        <Center >
-          <Text3D 
-          font={fontdanci} 
-          scale={0.098} 
-         maxWidth={[-w / 5, -h * 2, 3]}
-        >
-          19
-         <meshNormalMaterial color="white"    />
-      </Text3D>
-      </Center>
-      </mesh>
-      
+      <Cake3d  position={[0, 1.48, 0.8]} rotation={[0.3, 3, 0]} />
+      <group rotation={[0.3, 0, 0]} position={[0, 2.42, 1.1]} ref={meshRef}>
+          <mesh position={[0, 0.065, -0.06]}>
+            <Center >
+              <Text3D 
+              font={fontdanci} 
+              scale={0.098} 
+            maxWidth={[-w / 5, -h * 2, 3]}
+            height={0.2}
+              curveSegments={12}
+              bevelEnabled={true}
+              bevelThickness={0.01}
+              bevelSize={0.02}
+              bevelSegments={5}
+            >
+              Gustavo
+            <meshStandardMaterial color="white"    />
+          </Text3D>
+          </Center>
+        </mesh>
+        <mesh position={[0, -0, -0.06]}>
+          <Center >
+              <Text3D 
+              font={fontdanci} 
+              scale={0.078} 
+            maxWidth={[-w / 5, -h * 2, 3]}
+            height={0.2}
+            curveSegments={12}
+            bevelEnabled={true}
+            bevelThickness={0.01}
+            bevelSize={0.02}
+            bevelSegments={5}
+            >
+              oliveira
+            <meshStandardMaterial color="white"    />
+          </Text3D>
+          </Center>
+        </mesh>
+        <mesh position={[0, -0.06, -0.02]}>
+          <Center >
+            <Text3D 
+            font={fontdanci} 
+            scale={0.068} 
+          maxWidth={[2, -h * 2, 3]}
+          height={0.2}
+          curveSegments={12}
+          bevelEnabled={true}
+          bevelThickness={0.01}
+          bevelSize={0.02}
+          bevelSegments={5}
+          >
+            19
+          <meshStandardMaterial color="white"    />
+        </Text3D>
+        </Center>
+        </mesh>
+        
       
       </group>
     

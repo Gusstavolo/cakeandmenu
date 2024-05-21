@@ -221,25 +221,16 @@
     display: flex;
    align-items: center;
    justify-content: center;
-    margin-top: 40px;
+    margin-top: 0px;
     position: absolute;
     box-shadow: 20px;
     width: 100vw;
-    height: 410px;
+    height: 480px;
     opacity: 1;
     
   }
  
-  .d3_backg {
-   z-index: 0;
-    position: absolute;
-    top: 50px;
-    width: 230px;
-    height: 270px;
-    border-radius: 100%;
-    background-color: #f3d1d7;
-    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.411);
-  }
+ 
   .options_main {
     position: absolute;
     display: flex;
@@ -263,8 +254,9 @@
   }
   .options_main_botton {
     display: flex;
+    justify-content: center;
     width: 100%;
-    margin-top: 90%;
+   
     
   }
   .options_top_o {
@@ -279,10 +271,9 @@
   .options_cakecover {
    
     scale: 0.8;
-    top: 111px;
-    left: 250px;
+    
     width: 140px;
-    height: 120px;
+    
     border-top-right-radius: 10px;
 
     border-top-left-radius: 10px;
@@ -295,6 +286,49 @@
   .options_cakecover:hover {
     rotate: 5deg;
   }
+
+  .options_main_top {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+  }
+  .resultPrice {
+    display: flex;
+   position: relative;
+   justify-content: center;
+   align-items: center;
+   
+   flex-direction: column;
+    
+    width: 150px;
+    height: 40px;
+    top: -25px;
+    border-radius: 100px;
+    background-color:#c05f71;
+    
+  }
+  .poetsenTxt{
+    
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: aliceblue;
+  }
+  .txtfont {
+    position: relative;
+    top: 4px;
+    font-size: 1rem;
+  }
+  .txtfontP {
+    position: relative;
+    top: -4px;
+    font-size: 1.5rem;
+  }
+
+
+
+
   
  
   .body_Main {
