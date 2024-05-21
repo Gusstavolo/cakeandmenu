@@ -1,9 +1,13 @@
 import  { useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { Canvas } from '@react-three/fiber';
-import { Text3D, Center } from '@react-three/drei';
+import { Text3D, Center, Text } from '@react-three/drei';
+
+import fontdanci from "../assets/fontdanci.json"
+
+
 
 export function Cake3d(props) {
   const { nodes, materials } = useGLTF('/models/bolonew.glb')
@@ -47,6 +51,7 @@ export function Cake3d(props) {
       <mesh  geometry={nodes.BRIGADEIRO2.geometry} material={materials.brigaderio} scale={0.059} />
       <mesh  geometry={nodes.BRIGADEIRO2002.geometry} material={materials.brigaderio} scale={0.059} />
       <mesh receiveShadow geometry={nodes.Base_Cake.geometry} material={materials.Default} position={[0, 0, 0.02]} rotation={[Math.PI / 2, 0, 0]} scale={3.261} />
+   
     </group>
   )
 }
@@ -56,7 +61,6 @@ useGLTF.preload('/models/bolonew.glb')
 export function CakeSlice(props) {
   const { nodes, materials } = useGLTF('/models/boloslice.glb')
   const meshRef = useRef();
-  
 
   useFrame(() => {
     if (meshRef.current) {
@@ -82,8 +86,17 @@ export function CakeSlice(props) {
 useGLTF.preload('/models/boloslice.glb')
 
 export const Experience = () => {
+ 
+  const meshRef = useRef();
   
-    
+
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.002;
+    }
+  });
+  const { width: w, height: h } = useThree((state) => state.viewport);
+
     return (
     <>
      
@@ -91,12 +104,25 @@ export const Experience = () => {
       <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
       <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
        
-      <Cake3d  position={[0, 1.56, 1.2]} rotation={[0.3, 3, 0]} />
+      <Cake3d  position={[0, 1.6, 1]} rotation={[0.3, 3, 0]} />
+      <group >
+        
+        <Center ref={meshRef}  rotation={[0.3, 0, 0]} position={[0, 2.55, 1.3]}>
+          <Text3D 
+          font={fontdanci} 
+        
+          scale={0.098} 
+         maxWidth={[-w / 5, -h * 2, 3]}
+     
+        >
+          Gustavo
+         <meshNormalMaterial color="white"    />
+      </Text3D>
+      </Center>
       
-        <Text3D letterSpacing={-0.06} size={0.5} font="/Inter_Bold.json">
-          top left
-          <meshStandardMaterial color="white" />
-        </Text3D>
+      </group>
+    
+  
       
       </>
             
