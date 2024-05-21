@@ -23,12 +23,11 @@ const BoloForm = () => {
     const handleSubmit = (event) => {
       event.preventDefault();
       const mensagem = `Olá, gostaria de encomendar um bolo.\nNome: ${nome}\nSabor: ${sabor}\nTamanho: ${tamanho}`;
-      const numeroWhatsApp = '5511999999999'; // substitua pelo número da boleira
+      const numeroWhatsApp = '557599808083';
       const urlWhatsApp = `whatsapp://send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
-  
+        const a;
       window.location.href = urlWhatsApp;
     };
-  
     return (
       <form onSubmit={handleSubmit}>
         <div>
