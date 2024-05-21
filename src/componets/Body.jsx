@@ -25,7 +25,7 @@ const BoloForm = () => {
       const mensagem = `Olá, gostaria de encomendar um bolo.\nNome: ${nome}\nSabor: ${sabor}\nTamanho: ${tamanho}`;
       const numeroWhatsApp = '557599808083';
       const urlWhatsApp = `whatsapp://send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
-        const a;
+      
       window.location.href = urlWhatsApp;
     };
     return (
