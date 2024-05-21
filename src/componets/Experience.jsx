@@ -8,7 +8,6 @@ import { Text3D, Center, Text } from '@react-three/drei';
 import fontdanci from "../assets/fontdanci.json"
 
 
-
 export function Cake3d(props) {
   const { nodes, materials } = useGLTF('/models/bolonew.glb')
   const meshRef = useRef();
@@ -105,20 +104,30 @@ export const Experience = () => {
       <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
        
       <Cake3d  position={[0, 1.6, 1]} rotation={[0.3, 3, 0]} />
-      <group >
-        
-        <Center ref={meshRef}  rotation={[0.3, 0, 0]} position={[0, 2.55, 1.3]}>
+      <group rotation={[0.3, 0, 0]} position={[0, 2.55, 1.3]} ref={meshRef}>
+        <Center >
           <Text3D 
           font={fontdanci} 
-        
           scale={0.098} 
          maxWidth={[-w / 5, -h * 2, 3]}
-     
         >
           Gustavo
          <meshNormalMaterial color="white"    />
       </Text3D>
       </Center>
+      <mesh position={[0, -0.1, 0.1]}>
+        <Center >
+          <Text3D 
+          font={fontdanci} 
+          scale={0.098} 
+         maxWidth={[-w / 5, -h * 2, 3]}
+        >
+          19
+         <meshNormalMaterial color="white"    />
+      </Text3D>
+      </Center>
+      </mesh>
+      
       
       </group>
     
