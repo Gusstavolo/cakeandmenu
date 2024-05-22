@@ -16,6 +16,7 @@ function BlockOptions({  onClick }) {
     )
 }
 
+
 export function Body() {
 
     const [isLayerOpen, setIsLayerOpen] = useState(false);
@@ -55,7 +56,7 @@ export function Body() {
                     </div>
                     <div className='resultPrice'>
                         <h1 className='poetsenTxt txtfont'>Total</h1>
-                        <h1 className='poetsenTxt txtfontP'>R$ 100,50</h1>
+                        <h1 className='poetsenTxt txtfontP'>R$ 154,50</h1>
                     </div>
                 </div>
 
@@ -71,7 +72,47 @@ export function Body() {
                 </div>
             </div>
         </div>
-        
+         {isLayerOpenTOP && (
+                <div className="layer_cakecover">
+                    
+                     <div className='layer_cakecover_main'>
+
+                     <div className='box_option_cakecover'> 
+                             <div className='box_option_cakecover_left'>
+                                <h1 className='poetsenTxt txtslice'>OPÇÕES</h1>
+                            </div>     
+                            <div className='box_option_cakecover_right'>
+                                <h1 className='poetsenTxt txtslice'>Aniversario</h1>
+                            </div>
+           
+                        </div>
+                        <div className='box_option_cakecover'> 
+                             <div className='box_option_cakecover_left'>
+                                <h1 className='poetsenTxt txtslice'>NOME?</h1>
+                            </div>     
+                            <div className='box_option_cakecover_right'>
+                                <h1 className='poetsenTxt txtslice'>Gustavo</h1>
+                            </div>
+           
+                        </div>
+                        <div className='box_option_cakecover'> 
+                             <div className='box_option_cakecover_left'>
+                                <h1 className='poetsenTxt txtslice'>SOBRENOME?</h1>
+                            </div>     
+                            <div className='box_option_cakecover_right'>
+                                <h1 className='poetsenTxt txtslice'>oliveira</h1>
+                            </div>
+           
+                        </div>
+                         
+                     
+
+
+                     </div>
+                    
+                    <button onClick={toggleLayerTOP}>Fechar</button>
+                </div>
+            )}
             {isLayerOpen && (
                 <div className="layer_filling">
                      <div className="layer_filling_top">
@@ -84,13 +125,7 @@ export function Body() {
                     <button onClick={toggleLayer}>Fechar</button>
                 </div>
             )}
-             {isLayerOpenTOP && (
-                <div className="layer_cakecover">
-                     
-                    
-                    <button onClick={toggleLayerTOP}>Fechar</button>
-                </div>
-            )}
+            
 
 
 
