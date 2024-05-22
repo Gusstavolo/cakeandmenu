@@ -6,6 +6,7 @@ import { Canvas } from '@react-three/fiber';
 import { Text3D, Center, Text } from '@react-three/drei';
 
 import fontdanci from "../assets/fontdanci.json"
+import { AmbientLight } from 'three';
 
 
 export function Cake3d(props) {
@@ -99,13 +100,14 @@ export const Experience = () => {
     return (
     <>
      
+     <ambientLight intensity={1}></ambientLight>
 
       <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
       <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
        
       <Cake3d  position={[0, 1.48, 0.8]} rotation={[0.3, 3, 0]} />
       <group rotation={[0.3, 0, 0]} position={[0, 2.42, 1.1]} ref={meshRef}>
-          <mesh position={[0, 0.065, -0.06]}>
+          <mesh position={[0, 0.08, -0.06]}>
             <Center >
               <Text3D 
               font={fontdanci} 
@@ -119,11 +121,11 @@ export const Experience = () => {
               bevelSegments={5}
             >
               Gustavo
-            <meshStandardMaterial color="white"    />
+            <meshStandardMaterial color="#b34458"    />
           </Text3D>
           </Center>
         </mesh>
-        <mesh position={[0, -0, -0.06]}>
+        <mesh position={[0, 0.01, -0.06]}>
           <Center >
               <Text3D 
               font={fontdanci} 
@@ -137,11 +139,11 @@ export const Experience = () => {
             bevelSegments={5}
             >
               oliveira
-            <meshStandardMaterial color="white"    />
+            <meshStandardMaterial color="#b34458"    />
           </Text3D>
           </Center>
         </mesh>
-        <mesh position={[0, -0.06, -0.02]}>
+        <mesh position={[0, -0.05, -0.02]}>
           <Center >
             <Text3D 
             font={fontdanci} 
@@ -155,7 +157,7 @@ export const Experience = () => {
           bevelSegments={5}
           >
             19
-          <meshStandardMaterial color="white"    />
+          <meshStandardMaterial color="#b34458"    />
         </Text3D>
         </Center>
         </mesh>
@@ -173,7 +175,6 @@ export function OverlaySlice() {
     
   return(
      <Canvas shadows>
-     
      <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
       <pointLight intensity={20} position={[0, 0, 3]}></pointLight>
       <directionalLight castShadow

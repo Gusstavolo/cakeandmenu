@@ -21,12 +21,25 @@ export function Body() {
 
     const [isLayerOpen, setIsLayerOpen] = useState(false);
     const [isLayerOpenTOP, setIsLayerOpenTOP] = useState(false);
-
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState('');   
+    
     const toggleLayer = () => {
         setIsLayerOpen(!isLayerOpen);
     };
     const toggleLayerTOP = () => {
         setIsLayerOpenTOP(!isLayerOpenTOP);
+    };
+
+    
+
+    const toggleOptions = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const selectOption = (option) => {
+        setSelectedOption(option);
+        setIsOpen(false);
     };
 
     return (
@@ -37,9 +50,7 @@ export function Body() {
          <div className='d3_' >
 
             <Canvas shadows async>
-
                 <Experience></Experience>
-
             </Canvas>
             <div className='options_main'>
                 <div className='options_main_top'>
@@ -77,34 +88,56 @@ export function Body() {
                     
                      <div className='layer_cakecover_main'>
 
-                     <div className='box_option_cakecover'> 
-                             <div className='box_option_cakecover_left'>
-                                <h1 className='poetsenTxt txtslice'>OPÇÕES</h1>
-                            </div>     
-                            <div className='box_option_cakecover_right'>
-                                <h1 className='poetsenTxt txtslice'>Aniversario</h1>
-                            </div>
-           
+                     
+                        <div className='box_option_cakecover' onClick={toggleOptions}> 
+                        <div className="box_option_cakecover_left">
+                        <h1 className="poetsenTxt txtslice">OPÇÕES</h1>
                         </div>
-                        <div className='box_option_cakecover'> 
-                             <div className='box_option_cakecover_left'>
-                                <h1 className='poetsenTxt txtslice'>NOME?</h1>
-                            </div>     
-                            <div className='box_option_cakecover_right'>
-                                <h1 className='poetsenTxt txtslice'>Gustavo</h1>
-                            </div>
-           
+                        <div className="box_option_cakecover_right">
+                        <h1 className="poetsenTxt txtslice">{selectedOption || 'Selecionar'}</h1>
                         </div>
-                        <div className='box_option_cakecover'> 
-                             <div className='box_option_cakecover_left'>
-                                <h1 className='poetsenTxt txtslice'>SOBRENOME?</h1>
-                            </div>     
-                            <div className='box_option_cakecover_right'>
-                                <h1 className='poetsenTxt txtslice'>oliveira</h1>
-                            </div>
-           
+                    </div>
+                    {isOpen && (
+                        
+                            
+                            <div className="options_list">
+                                <div className='box_option_cakecover'>
+                                      <div className="box_option_cakecover_left">
+                                          <h1 className="poetsenTxt txtslice">OPÇÕES</h1>
+                                      </div>
+                                </div>
+
+                                 <div className="option_item poetsenTxt txtslice" onClick={() => selectOption('Aniversário')}>Aniversário</div>
+                                  <div className="option_item poetsenTxt txtslice" onClick={() => selectOption('Normal')}>Normal</div>
+                                  <div className="option_item poetsenTxt txtslice" onClick={() => selectOption('Normal')}>Normal</div>
+                                  <div className="option_item poetsenTxt txtslice" onClick={() => selectOption('Normal')}>Normal</div>
+                                  <div className="option_item poetsenTxt txtslice" onClick={() => selectOption('Normal')}>Normal</div>
                         </div>
-                         
+                    )}
+                          {selectedOption === 'Aniversário' && (
+        <>
+          <div className='box_option_cakecover'>
+            <div className='box_option_cakecover_left'>
+              <h1 className='poetsenTxt txtslice'>NOME?</h1>
+            </div>
+            <div className='box_option_cakecover_right'>
+              <h1 className='poetsenTxt txtslice'>Gustavo</h1>
+            </div>
+          </div>
+          <div className='box_option_cakecover'>
+            <div className='box_option_cakecover_left'>
+              <h1 className='poetsenTxt txtslice'>SOBRENOME?</h1>
+            </div>
+            <div className='box_option_cakecover_right'>
+              <h1 className='poetsenTxt txtslice'>Oliveira</h1>
+            </div>
+          </div>
+        </>
+      )}
+ 
+                        
+                        
+                        
                      
 
 
@@ -113,6 +146,8 @@ export function Body() {
                     <button onClick={toggleLayerTOP}>Fechar</button>
                 </div>
             )}
+            
+                        
             {isLayerOpen && (
                 <div className="layer_filling">
                      <div className="layer_filling_top">
