@@ -1,1 +1,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@400..700&family=Jersey+10&family=Lilita+One&family=Poetsen+One&family=Salsa&family=Signika:wght@300..700&family=Staatliches&family=Workbench&display=swap');
+
+.search-label {
+    width: 290px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    
+    box-sizing: border-box;
+    position: relative;
+    border: 3px solid transparent;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #b34458;
+    padding: 9px;
+    cursor: text;
+    
+  }
+  
+  .search-label:hover {
+    border-color: #da4a6486;
+  }
+  
+  .search-label:focus-within {
+    background: #b34458;
+    border-color: #ffa2b3;;
+  }
+  
+  .search-label input {
+    outline: none;
+    width: 100%;
+    height: 30px;
+    border: none;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    background: none;
+    font-size: 23px;
+    padding-bottom: 2px;
+    color: rgb(255, 255, 255);
+  }
+  .search-label input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.418);
+    font-size: 20px;
+ }
+  
+  
+ 
+ .search-label input:valid+.search-icon {
+   display: block;
+ }
+
+  .search-label input:valid {
+    width: calc(100% - 25px);
+    transform: translateX(22px);
+  }
+  
+  .search-label svg,
+  .slash-icon {
+    position: absolute;
+    color: #7e7e7e;
+  }
+  
+  .search-icon {
+    display: none;
+    width: 26px;
+    height: auto;
+   
+    opacity: 0;
+    transition: opacity 0.3s;
+    
+  }
+  .search-label input:valid + .search-icon {
+    opacity: 1;
+  }
+  
+  .search-label input:focus + .search-icon {
+    opacity: 0;
+  }
+
+  
