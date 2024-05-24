@@ -32,7 +32,33 @@ function StringInsert() {
   )
 }
 
+const BoxFloorActiveCheck = ({ floor, setFloorChange }) => {
+    return (
+        <div className='box_option_cakecover'>
+            <div className='box_option_cakecover_left'>
+                <h1 className='poetsenTxt txtslice'>ADICIONAR ANDAR?</h1>
+            </div>
 
+            <div className='box_option_cakecover_right'>
+                <div className='option_cake_floor'>
+                    <div className="poetsenTxt txtslice">{floor}</div>
+                    
+                    <label className="switch">
+                        <input 
+                            type="checkbox" 
+                            value={floor}
+                            onChange={setFloorChange}
+                            checked={floor === 'Sim'}
+                        />
+                        <span className="slider">
+                            <svg className="slider-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"><path fill="none" d="m4 16.5 8 8 16-16"></path></svg> 
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    );
+}
 export function Body() {
 
     const [isLayerOpen, setIsLayerOpen] = useState(false);
@@ -69,6 +95,7 @@ export function Body() {
     const setfloorChange = (event) => {
         setFloor(event.target.checked ? 'Sim' : 'Não');
     }
+    
     return (
         <>
       
@@ -200,28 +227,21 @@ export function Body() {
                  </label>
             </div>
           </div>
-          <div className='box_option_cakecover'>
-                <div className='box_option_cakecover_left'>
-                  <h1 className='poetsenTxt txtslice'>ADICIONAR ANDAR?</h1>
-                </div>
-
-                <div className='box_option_cakecover_right'>
-                    <div className='option_cake_floor'>
-                      <div className="poetsenTxt txtslice">{floor}</div>
-                      
-                         <label className="switch">
-                            <input type="checkbox" 
-                            value={floor}
-                            onChange={setfloorChange}
-                            checked={floor === 'Sim'}
-                            />
-                            <span className="slider">
-                              <svg className="slider-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"><path fill="none" d="m4 16.5 8 8 16-16"></path></svg> 
-                            </span>
-                         </label>
-                    </div>
-                </div>
+         <BoxFloorActiveCheck floor={floor} setFloorChange={setfloorChange}></BoxFloorActiveCheck>
+        
+        
+         <div className='box_option_cakecover'>
+            <div className='box_option_cakecover_left'>
+              <h1 className='poetsenTxt txtslice'>TAMANHO DO BOLO?</h1>
+            </div>
+            <div className='box_option_cakecover_right'>
+                <label>
+                    <input type="range" name="" id="" />
+                </label>
+            </div>
           </div>
+           
+      
         </>
       )}
  
@@ -230,10 +250,10 @@ export function Body() {
                         
                      
 
-
+                    <button onClick={toggleLayerTOP}>Fechar</button>
                      </div>
                     
-                    <button onClick={toggleLayerTOP}>Fechar</button>
+                    
                 </div>
             )}
             

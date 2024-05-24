@@ -114,6 +114,7 @@
     transition: .4s;
     border-radius: 32px;
     outline: none;
+    
   }
   
   .slider:before {
