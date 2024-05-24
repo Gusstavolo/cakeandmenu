@@ -585,6 +585,7 @@
 }
 .option_cake_floor {
   display: flex;
+  gap: 20px;
 }
 
 

@@ -41,6 +41,7 @@ export function Body() {
     const [selectedOption, setSelectedOption] = useState('Aniversário');   
     const [name, setName] = useState(''); // Estado para o nome
     const [surname, setSurname] = useState('');
+    const [floor, setFloor] = useState('Não');
 
 
     const toggleLayer = () => {
@@ -65,6 +66,9 @@ export function Body() {
     const handleSurnameChange = (event) => {
         setSurname(event.target.value);
     };
+    const setfloorChange = (event) => {
+        setFloor(event.target.checked ? 'Sim' : 'Não');
+    }
     return (
         <>
       
@@ -85,7 +89,7 @@ export function Body() {
                         
                         <div>
                             <h1 className='poetsenTxt txtfont'>Andar</h1>
-                            <h1 className='poetsenTxt txtfontP'>Sim</h1>
+                            <h1 className='poetsenTxt txtfontP'>{floor}</h1>
                         </div>
                     </div>
                     <div className='resultPrice'>
@@ -198,18 +202,23 @@ export function Body() {
           </div>
           <div className='box_option_cakecover'>
                 <div className='box_option_cakecover_left'>
-                  <h1 className='poetsenTxt txtslice'>SOBRENOME?</h1>
+                  <h1 className='poetsenTxt txtslice'>ADICIONAR ANDAR?</h1>
                 </div>
 
                 <div className='box_option_cakecover_right'>
                     <div className='option_cake_floor'>
-                      <div className="poetsenTxt txtslice">Sim</div>
-                      <label className="switch">
-                            <input type="checkbox" />
+                      <div className="poetsenTxt txtslice">{floor}</div>
+                      
+                         <label className="switch">
+                            <input type="checkbox" 
+                            value={floor}
+                            onChange={setfloorChange}
+                            checked={floor === 'Sim'}
+                            />
                             <span className="slider">
                               <svg className="slider-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"><path fill="none" d="m4 16.5 8 8 16-16"></path></svg> 
                             </span>
-                        </label>
+                         </label>
                     </div>
                 </div>
           </div>
