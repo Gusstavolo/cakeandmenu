@@ -533,6 +533,8 @@
 }
 .box_option_cakecover_right {
    padding: 5px;
+   display: flex;
+   align-items: center;
    
 }
 .options_list {
@@ -580,6 +582,9 @@
   
   align-items: center;
   border: #b34458 solid ;
+}
+.option_cake_floor {
+  display: flex;
 }
 
 

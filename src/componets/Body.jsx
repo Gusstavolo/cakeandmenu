@@ -116,8 +116,12 @@ export function Body() {
                         <div className="box_option_cakecover_left">
                         <h1 className="poetsenTxt txtslice">OPÇÕES</h1>
                         </div>
+
                         <div className="box_option_cakecover_right">
-                        <h1 className="poetsenTxt txtslice">{selectedOption || 'Selecionar'}</h1>
+
+                          <h1 className="poetsenTxt txtslice">{selectedOption || 'Selecionar'}</h1>
+                        <svg className='icon_menu' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+
                         </div>
                     </div>
                     {isOpen && (
@@ -128,6 +132,7 @@ export function Body() {
                                       <div className="box_option_cakecover_left">
                                           <h1 className="poetsenTxt txtslice">OPÇÕES</h1>
                                       </div>
+
                                 </div>
 
                                  <div className="option_item poetsenTxt txtslice" onClick={() => selectOption('Aniversário')}>Aniversário</div>
@@ -135,6 +140,7 @@ export function Body() {
                                   <div className="option_item poetsenTxt txtslice" onClick={() => selectOption('Normal')}>Normal</div>
                                   <div className="option_item poetsenTxt txtslice" onClick={() => selectOption('Normal')}>Normal</div>
                                   <div className="option_item poetsenTxt txtslice" onClick={() => selectOption('Normal')}>Normal</div>
+                        
                         </div>
                     )}
                           {selectedOption === 'Aniversário' && (
@@ -146,23 +152,23 @@ export function Body() {
             
             <div className='box_option_cakecover_right'>
             
-              <label className="search-label">
-             
-             <input
-              type="text" name="text"
-               className="input" 
-               required="" 
-               value={name} 
-                onChange={handleNameChange} 
-               placeholder="Digite seu sobrenome..." />
-             {name != "" && (
+                    <label className="search-label">
+                    
+                        <input
+                        type="text" name="text"
+                        className="input" 
+                        required="" 
+                        value={name} 
+                            onChange={handleNameChange} 
+                        placeholder="Digite seu nome..." />
+                        {name != "" && (
 
-                 <svg  className="search-icon "  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-                 <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q8 0 15 1.5t14 4.5l-74 74H200v560h560v-266l80-80v346q0 33-23.5 56.5T760-120H200Zm261-160L235-506l56-56 170 170 367-367 57 55-424 424Z"/></svg>
-          
-             )}
-             
-          </label>
+                            <svg  className="search-icon "  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                            <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q8 0 15 1.5t14 4.5l-74 74H200v560h560v-266l80-80v346q0 33-23.5 56.5T760-120H200Zm261-160L235-506l56-56 170 170 367-367 57 55-424 424Z"/></svg>
+                    
+                        )}
+                    
+                </label>
               
             </div>
           </div>
@@ -189,6 +195,23 @@ export function Body() {
                     
                  </label>
             </div>
+          </div>
+          <div className='box_option_cakecover'>
+                <div className='box_option_cakecover_left'>
+                  <h1 className='poetsenTxt txtslice'>SOBRENOME?</h1>
+                </div>
+
+                <div className='box_option_cakecover_right'>
+                    <div className='option_cake_floor'>
+                      <div className="poetsenTxt txtslice">Sim</div>
+                      <label className="switch">
+                            <input type="checkbox" />
+                            <span className="slider">
+                              <svg className="slider-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"><path fill="none" d="m4 16.5 8 8 16-16"></path></svg> 
+                            </span>
+                        </label>
+                    </div>
+                </div>
           </div>
         </>
       )}
