@@ -85,6 +85,39 @@ export function CakeSlice(props) {
 
 useGLTF.preload('/models/boloslice.glb')
 
+
+export function CakeAcetato(props) {
+  const { nodes, materials } = useGLTF('/models/boloacetato.glb')
+  const meshRef = useRef();
+  
+
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.002;
+    }
+  });
+
+  return (
+    <group ref={meshRef} {...props} dispose={null}>
+      <mesh geometry={nodes.bolo1.geometry} material={materials.bolo1} rotation={[Math.PI / 2, 0, 0]} scale={[6.294, 6.294, 12.011]} />
+      <mesh geometry={nodes.recheio.geometry} material={materials.recheio1} rotation={[Math.PI / 2, 0, 0]} scale={[6.294, 6.294, 12.011]} />
+      <mesh geometry={nodes.Base_Cake.geometry} material={materials.Default} rotation={[Math.PI / 2, 0, 0]} scale={3.261} />
+      <mesh geometry={nodes.Chantili.geometry} material={materials.Chantili} rotation={[Math.PI / 2, 0, 0]} scale={[6.315, 6.315, 9.383]} />
+      <mesh geometry={nodes.chantili.geometry} material={materials.Chantili} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh geometry={nodes.plastico.geometry} material={materials.plastico} rotation={[Math.PI / 2, 0, 0]} scale={[6.294, 6.294, 12.011]} />
+      <mesh geometry={nodes.recheio001.geometry} material={materials.recheio2} rotation={[Math.PI / 2, 0, 0]} scale={[6.294, 6.294, 12.011]} />
+      <mesh geometry={nodes.bolo1002.geometry} material={materials.bolo3} rotation={[Math.PI / 2, 0, 0]} scale={[6.294, 6.294, 12.011]} />
+      <mesh geometry={nodes.bolo1003.geometry} material={materials.bolo2} rotation={[Math.PI / 2, 0, 0]} scale={[6.294, 6.294, 12.011]} />
+    </group>
+  )
+}
+
+useGLTF.preload('/models/boloacetato.glb')
+
+
+
+
+
 export const Experience = () => {
  
   const meshRef = useRef();
@@ -106,6 +139,92 @@ export const Experience = () => {
       <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
        
       <Cake3d  position={[0, 1.48, 0.8]} rotation={[0.3, 3, 0]} />
+      <group rotation={[0.3, 0, 0]} position={[0, 2.42, 1.1]} ref={meshRef}>
+          <mesh position={[0, 0.08, -0.06]}>
+            <Center >
+              <Text3D 
+              font={fontdanci} 
+              scale={0.098} 
+            maxWidth={[-w / 5, -h * 2, 3]}
+            height={0.2}
+              curveSegments={12}
+              bevelEnabled={true}
+              bevelThickness={0.01}
+              bevelSize={0.02}
+              bevelSegments={5}
+            >
+              Gustavo
+            <meshStandardMaterial color="#b34458"    />
+          </Text3D>
+          </Center>
+        </mesh>
+        <mesh position={[0, 0.01, -0.06]}>
+          <Center >
+              <Text3D 
+              font={fontdanci} 
+              scale={0.078} 
+            maxWidth={[-w / 5, -h * 2, 3]}
+            height={0.2}
+            curveSegments={12}
+            bevelEnabled={true}
+            bevelThickness={0.01}
+            bevelSize={0.02}
+            bevelSegments={5}
+            >
+              oliveira
+            <meshStandardMaterial color="#b34458"    />
+          </Text3D>
+          </Center>
+        </mesh>
+        <mesh position={[0, -0.05, -0.02]}>
+          <Center >
+            <Text3D 
+            font={fontdanci} 
+            scale={0.068} 
+          maxWidth={[2, -h * 2, 3]}
+          height={0.2}
+          curveSegments={12}
+          bevelEnabled={true}
+          bevelThickness={0.01}
+          bevelSize={0.02}
+          bevelSegments={5}
+          >
+            19
+          <meshStandardMaterial color="#b34458"    />
+        </Text3D>
+        </Center>
+        </mesh>
+        
+      
+      </group>
+    
+  
+      
+      </>
+            
+    )
+}
+export const ExperienceAcetato = () => {
+ 
+  const meshRef = useRef();
+  
+
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.002;
+    }
+  });
+  const { width: w, height: h } = useThree((state) => state.viewport);
+
+    return (
+    <>
+     
+     <ambientLight intensity={1}></ambientLight>
+
+      <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
+      <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
+       
+      <CakeAcetato position={[0, 1.65, 0.99]} rotation={[0.3, 3, 0]} />
       <group rotation={[0.3, 0, 0]} position={[0, 2.42, 1.1]} ref={meshRef}>
           <mesh position={[0, 0.08, -0.06]}>
             <Center >

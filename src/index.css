@@ -136,7 +136,7 @@
     width: 12px;
     stroke-width: 8;
     position: absolute;
-    z-index: 999;
+    z-index: 0;
     stroke: #ffa2b3;
     right: 60%;
     top: 30%;
@@ -156,3 +156,35 @@
     transform: translateX(1.5em);
     outline-color: #ffffff;
   }
+ 
+
+.custom-range input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: flex;
+  width: 150px;
+  height: 19px;
+  position: relative;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #ffffff;
+  outline: none;
+}
+
+.custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%; 
+
+  background: #a0384b;
+  cursor: pointer;
+}
+.custom-range_main {
+  width: 100%;
+  padding: 10px;
+}
+
+
+
