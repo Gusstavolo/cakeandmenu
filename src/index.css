@@ -156,35 +156,137 @@
     transform: translateX(1.5em);
     outline-color: #ffffff;
   }
- 
 
-.custom-range input[type=range] {
-  -webkit-appearance: none;
-  appearance: none;
-  display: flex;
-  width: 150px;
-  height: 19px;
-  position: relative;
-  align-items: center;
-  border-radius: 5px;
-  background-color: #ffffff;
-  outline: none;
-}
 
-.custom-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%; 
 
-  background: #a0384b;
-  cursor: pointer;
-}
+
+
+
+
+
+
 .custom-range_main {
+  width: 210px;
+  padding: 20px;
+}
+.flexcolum{
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+input[type="range"] {
+  -webkit-appearance: none; /* Remover estilo padrão do Webkit */
   width: 100%;
-  padding: 10px;
+  margin: 10px 0;
+  position: relative;
+  
+}
+
+input[type="range"]:focus {
+  outline: none; /* Remover contorno ao focar */
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 24.4px;
+  cursor: pointer;
+  background: #b34458;
+  
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 50px;
+  height: 50px;
+  
+  background: url("./img/icons8-cake-50.png");
+  background-size: 100%;
+  cursor: pointer;
+  margin-top: -17px;
+  
 }
 
 
 
+input[type="range"]::-moz-range-thumb {
+  height: 36px;
+  width: 16px;
+  
+  cursor: pointer;
+  
+}
+.slider-container_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  
+}
+.slider-container_Decrement {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px;
+  border-top-left-radius: 28px;
+  background-color: #a0384b;
+}
+.slider-container_Increment {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px;
+  border-top-right-radius: 28px;
+  background-color: #a0384b;
+}
+/* Contêiner do controle deslizante */
+.slider-container {
+  position: relative;
+  width: 100%;
+  
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 200px;
+  transition: 2s;
+  
+}
+
+.slider-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  top: 2px;
+  width: 100%;
+  height: 26px;
+  background:#b34458;
+  color: white;
+  
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.datalist-labels {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  
+}
+
+.datalist-labels span {
+  position: absolute;
+  top: 20px;
+  font-size: 12px;
+  color: #333;
+  transform: translateX(-50%);
+  
+}

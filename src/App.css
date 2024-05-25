@@ -587,6 +587,10 @@
   display: flex;
   gap: 20px;
 }
+.range_number {
+  display: flex;
+ 
+}
 
 
 }

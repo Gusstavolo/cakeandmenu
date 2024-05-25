@@ -59,6 +59,80 @@ const BoxFloorActiveCheck = ({ floor, setFloorChange }) => {
         </div>
     );
 }
+
+const SliderComponent = ({ valoresPermitidos }) => {
+    const [valorSlider, setValorSlider] = useState(valoresPermitidos[0]); // Inicializa com o primeiro valor permitido
+  
+    const handleSliderChange = (event) => {
+      const valorSelecionado = parseInt(event.target.value); // Converte o valor para número inteiro
+      // Verifica se o valor selecionado está na lista de valores permitidos
+      if (valoresPermitidos.includes(valorSelecionado)) {
+        setValorSlider(valorSelecionado); // Define o novo valor do controle deslizante
+      }
+    };
+    const handleButtonClick = () => {
+        const currentIndex = valoresPermitidos.indexOf(valorSlider);
+        if (currentIndex < valoresPermitidos.length - 1) {
+          const nextValue = valoresPermitidos[currentIndex + 1];
+          setValorSlider(nextValue);
+        }
+      };
+      const handleIncrementClick = () => {
+        const currentIndex = valoresPermitidos.indexOf(valorSlider);
+        if (currentIndex < valoresPermitidos.length - 1) {
+          const nextValue = valoresPermitidos[currentIndex + 1];
+          setValorSlider(nextValue);
+        }
+      };
+  
+      const handleDecrementClick = () => {
+        const currentIndex = valoresPermitidos.indexOf(valorSlider);
+        if (currentIndex > 0) {
+          const previousValue = valoresPermitidos[currentIndex - 1];
+          setValorSlider(previousValue);
+        }
+      };
+  
+    return (<div className='slider-container_main'>
+             <div className='slider-container_Decrement' onClick={handleDecrementClick}>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-440v-80h560v80H200Z"/></svg>
+                </div>
+                <div className="slider-container">
+                    
+                    <div className="slider-wrapper">
+                    <input
+                        type="range"
+                        id="temp3"
+                        name="temp3"
+                        min={valoresPermitidos[0]}
+                        max={valoresPermitidos[valoresPermitidos.length - 1]}
+                        step="1"
+                        value={valorSlider}
+                        list="values"
+                        onChange={handleSliderChange}
+                    ></input>
+                    <div className="slider-value poetsenTxt">
+                        {valorSlider} FATIAS
+                    </div>
+                    
+                    
+                    
+                    <datalist id="values">
+                        {valoresPermitidos.map((valor) => (
+                        <option key={valor} value={valor} label={valor}></option>
+                        ))}
+                    </datalist>
+                </div>
+            
+            </div>
+            <div className='slider-container_Increment' onClick={handleIncrementClick}>
+
+                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+            </div>
+      </div>
+    );
+  };
+
 export function Body() {
 
     const [isLayerOpen, setIsLayerOpen] = useState(false);
@@ -250,29 +324,9 @@ export function Body() {
             <div className='box_option_cakecover_left'>
               <h1 className='poetsenTxt txtslice'>TAMANHO DO BOLO?</h1>
             </div>
-            <div className='box_option_cakecover_right'>
-                <label className='custom-range_main custom-range ' >
-                        <input className='custom-range'
-                        type="range" 
-                        itemID='temp1'
-                        
-                        name="temp1" 
-                        min="20" 
-                        max="55" 
-                        list="values"
-                        onChange={handleSliderChange} 
-                        value={valorSlider} // Define o valor do controle deslizante
-                    />
+            <div className='box_option_cakecover_right flexcolum'>
+            <SliderComponent valoresPermitidos={[20, 23, 41, 55]} />
 
-                    <datalist id="values">
-                    <option value={valoresPermitidos[0]} label={valoresPermitidos[0]}>
-                  
-                    </option>
-                    <option value={valoresPermitidos[1]} label={valoresPermitidos[1]}></option>
-                    <option value={valoresPermitidos[2]} label={valoresPermitidos[2]}></option>
-
-                    </datalist>
-                </label>
             </div>
           </div>
            

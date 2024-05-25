@@ -6,6 +6,7 @@ import { Canvas } from '@react-three/fiber';
 import { Text3D, Center, Text } from '@react-three/drei';
 
 import fontdanci from "../assets/fontdanci.json"
+import fontpoets from "../assets/poets.json"
 import { AmbientLight } from 'three';
 
 
@@ -139,11 +140,11 @@ export const Experience = () => {
       <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
        
       <Cake3d  position={[0, 1.48, 0.8]} rotation={[0.3, 3, 0]} />
-      <group rotation={[0.3, 0, 0]} position={[0, 2.42, 1.1]} ref={meshRef}>
+      <group rotation={[0.3, 0, 0]} position={[0, 2.42, 1.1]}  ref={meshRef} >
           <mesh position={[0, 0.08, -0.06]}>
             <Center >
               <Text3D 
-              font={fontdanci} 
+              font={fontpoets} 
               scale={0.098} 
             maxWidth={[-w / 5, -h * 2, 3]}
             height={0.2}
@@ -161,7 +162,7 @@ export const Experience = () => {
         <mesh position={[0, 0.01, -0.06]}>
           <Center >
               <Text3D 
-              font={fontdanci} 
+              font={fontpoets} 
               scale={0.078} 
             maxWidth={[-w / 5, -h * 2, 3]}
             height={0.2}
@@ -179,7 +180,7 @@ export const Experience = () => {
         <mesh position={[0, -0.05, -0.02]}>
           <Center >
             <Text3D 
-            font={fontdanci} 
+            font={fontpoets} 
             scale={0.068} 
           maxWidth={[2, -h * 2, 3]}
           height={0.2}
@@ -225,11 +226,11 @@ export const ExperienceAcetato = () => {
       <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
        
       <CakeAcetato position={[0, 1.65, 0.99]} rotation={[0.3, 3, 0]} />
-      <group rotation={[0.3, 0, 0]} position={[0, 2.42, 1.1]} ref={meshRef}>
+      <group rotation={[0.3, 0, 0]} position={[0, 2.34, 1.1]} ref={meshRef}>
           <mesh position={[0, 0.08, -0.06]}>
             <Center >
               <Text3D 
-              font={fontdanci} 
+              font={fontpoets} 
               scale={0.098} 
             maxWidth={[-w / 5, -h * 2, 3]}
             height={0.2}
@@ -244,10 +245,10 @@ export const ExperienceAcetato = () => {
           </Text3D>
           </Center>
         </mesh>
-        <mesh position={[0, 0.01, -0.06]}>
+        <mesh position={[0, 0.0, -0.06]}>
           <Center >
               <Text3D 
-              font={fontdanci} 
+              font={fontpoets} 
               scale={0.078} 
             maxWidth={[-w / 5, -h * 2, 3]}
             height={0.2}
@@ -262,10 +263,10 @@ export const ExperienceAcetato = () => {
           </Text3D>
           </Center>
         </mesh>
-        <mesh position={[0, -0.05, -0.02]}>
+        <mesh position={[0, -0.07, -0.02]}>
           <Center >
             <Text3D 
-            font={fontdanci} 
+            font={fontpoets} 
             scale={0.068} 
           maxWidth={[2, -h * 2, 3]}
           height={0.2}
