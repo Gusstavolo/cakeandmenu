@@ -60,8 +60,7 @@ const BoxFloorActiveCheck = ({ floor, setFloorChange }) => {
     );
 }
 
-const SliderComponent = ({ valoresPermitidos }) => {
-    const [valorSlider, setValorSlider] = useState(valoresPermitidos[0]); // Inicializa com o primeiro valor permitido
+const SliderComponent = ({ valoresPermitidos, valorSlider, setValorSlider }) => {
   
     const handleSliderChange = (event) => {
       const valorSelecionado = parseInt(event.target.value); // Converte o valor para número inteiro
@@ -70,13 +69,7 @@ const SliderComponent = ({ valoresPermitidos }) => {
         setValorSlider(valorSelecionado); // Define o novo valor do controle deslizante
       }
     };
-    const handleButtonClick = () => {
-        const currentIndex = valoresPermitidos.indexOf(valorSlider);
-        if (currentIndex < valoresPermitidos.length - 1) {
-          const nextValue = valoresPermitidos[currentIndex + 1];
-          setValorSlider(nextValue);
-        }
-      };
+ 
       const handleIncrementClick = () => {
         const currentIndex = valoresPermitidos.indexOf(valorSlider);
         if (currentIndex < valoresPermitidos.length - 1) {
@@ -134,6 +127,7 @@ const SliderComponent = ({ valoresPermitidos }) => {
   };
 
 export function Body() {
+    const [valorSlider, setValorSlider] = useState(valoresPermitidos[0]); // Inicializa com o primeiro valor permitido
 
     const [isLayerOpen, setIsLayerOpen] = useState(false);
     const [isLayerOpenTOP, setIsLayerOpenTOP] = useState(false);
@@ -142,15 +136,8 @@ export function Body() {
     const [name, setName] = useState(''); // Estado para o nome
     const [surname, setSurname] = useState('');
     const [floor, setFloor] = useState('Não');
-    const [valorSlider, setValorSlider] = useState(20); // Inicia com o primeiro valor permitido
 
-    const handleSliderChange = (event) => {
-        const valorSelecionado = parseInt(event.target.value); // Converte o valor para número inteiro
-        // Verifica se o valor selecionado está na lista de valores permitidos
-        if (valoresPermitidos.includes(valorSelecionado)) {
-            setValorSlider(valorSelecionado); // Define o novo valor do controle deslizante
-        }
-    };
+   
 
     const toggleLayer = () => {
         setIsLayerOpen(!isLayerOpen);
@@ -204,7 +191,7 @@ export function Body() {
                     <div className='resultSlice'>
                         <div>
                             <h1 className='poetsenTxt txtfont'>Fatias</h1>
-                             <h1 className='poetsenTxt txtfontP'>32</h1>
+                             <h1 className='poetsenTxt txtfontP'>{valorSlider} </h1>
                         </div>
                         
                         <div>
@@ -325,7 +312,7 @@ export function Body() {
               <h1 className='poetsenTxt txtslice'>TAMANHO DO BOLO?</h1>
             </div>
             <div className='box_option_cakecover_right flexcolum'>
-            <SliderComponent valoresPermitidos={[20, 23, 41, 55]} />
+            <SliderComponent valoresPermitidos={[20, 23, 41, 55]} valorSlider={valorSlider} setValorSlider={setValorSlider}/>
 
             </div>
           </div>
