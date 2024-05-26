@@ -115,11 +115,54 @@ export function CakeAcetato(props) {
 
 useGLTF.preload('/models/boloacetato.glb')
 
+export function CakeChantininho(props) {
+  const { nodes, materials } = useGLTF('/models/bolochantininhobase.glb')
+  const meshRef = useRef();
+  
+
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.002;
+    }
+  });
+ 
+ 
+  return (
+    <group {...props} dispose={null} ref={meshRef}>
+      <mesh geometry={nodes.Base_Cake001.geometry} material={materials['Default.001']}  rotation={[Math.PI / 2, 0, 0]} scale={3.261} />
+      <mesh geometry={nodes.bolo1001.geometry} material={materials.cakechantininho1} material-color={"#ca6f6f"} position={[0.003, 0, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[6.294, 6.294, 12.011]} />
+      <mesh geometry={nodes.chantili001.geometry} material={materials['Chantili.002']} material-color={"#ca6f6f"} position={[0.003, -0.03, 0]} rotation={[Math.PI / 2, 0, 0]} />
+    </group>
+  )
+}
+
+useGLTF.preload('/models/bolochantininhobase.glb')
+export function CakeChantininhoTop(props) {
+  const { nodes, materials } = useGLTF('/models/bolochantininhobase.glb')
+  const meshRef = useRef();
+  
+
+  useFrame(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.002;
+    }
+  });
+ 
+ 
+  return (
+    <group {...props} dispose={null} ref={meshRef}>
+      <mesh geometry={nodes.bolo1001.geometry} material={materials.cakechantininho1} material-color={"#ca6f6f"} position={[0.003, 0, 0]} rotation={[Math.PI / 2, 0, 0]} scale={[6.294, 6.294, 12.011]} />
+      <mesh geometry={nodes.chantili001.geometry} material={materials['Chantili.002']} material-color={"#ca6f6f"} position={[0.003, -0.03, 0]} rotation={[Math.PI / 2, 0, 0]} />
+    </group>
+  )
+}
+
+useGLTF.preload('/models/bolochantininhobase.glb')
 
 
 
 
-export const Experience = ({name, surname}) => {
+export const Experience = ({name, surname,age}) => {
  
   const meshRef = useRef();
   
@@ -139,7 +182,7 @@ export const Experience = ({name, surname}) => {
       <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
       <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
        
-      <Cake3d  position={[0, 1.48, 0.8]} rotation={[0.3, 3, 0]} />
+      <CakeChantininho  position={[0, 1.48, 0.8]} rotation={[0.3, 3, 0]} />
       <group rotation={[0.3, 0, 0]} position={[0, 2.42, 1.1]}  ref={meshRef} >
           <mesh position={[-0.2, 0.08, -0.06]}>
             <Center >
@@ -190,7 +233,7 @@ export const Experience = ({name, surname}) => {
           bevelSize={0.02}
           bevelSegments={5}
           >
-            19
+            {age}
           <meshStandardMaterial color="#b34458"    />
         </Text3D>
         </Center>
@@ -205,6 +248,27 @@ export const Experience = ({name, surname}) => {
             
     )
 }
+export const ExperienceChantininhoTop = () => {
+
+  return (
+    <    >
+    <ambientLight intensity={1}></ambientLight>
+
+    <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
+    <directionalLight castShadow intensity={8} position={[0,1, 0.8]} ></directionalLight>
+     
+    <CakeChantininhoTop scale={0.8} position={[0, 1.88, 0.9]} rotation={[0.3, 3, 0]} />
+
+  </>
+  )
+}
+
+
+
+
+
+
+
 export const ExperienceAcetato = ({name}) => {
  
   const meshRef = useRef();

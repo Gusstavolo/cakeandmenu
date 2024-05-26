@@ -1,7 +1,7 @@
 import '../App.css';
 import'../index.css';
 import { Canvas } from '@react-three/fiber';
-import { Experience, OverlaySlice, ExperienceAcetato } from './Experience';
+import { Experience, OverlaySlice, ExperienceAcetato, ExperienceChantininhoTop } from './Experience';
 import React, { useState, useRef } from 'react';
 
 const valoresPermitidos = [20, 23, 41, 55];
@@ -174,12 +174,18 @@ export function Body() {
 
          <div className='d3_' >
          {selectedOption === 'Chantininho' && (
-            
-            <Canvas shadows async>
-                <Experience name={name} surname={surname}></Experience>
-            </Canvas>
-            
-         )}
+           <>
+           {selectedOption === 'Chantininho' && (
+               <Canvas shadows async>
+                   <Experience name={name} surname={surname} />
+                   {floor === "Sim" && (
+                       <ExperienceChantininhoTop />
+                   )}
+               </Canvas>
+           )}
+             </>
+         )
+         }
          {selectedOption === 'Acetato' && (
             <Canvas shadows async>
                 <ExperienceAcetato name={name} surname={surname}/>
