@@ -4,8 +4,8 @@ import { Canvas } from '@react-three/fiber';
 import { Experience, OverlaySlice, ExperienceAcetato } from './Experience';
 import React, { useState, useRef } from 'react';
 
-const valoresPermitidos = [20, 41, 55];
-
+const valoresPermitidos = [20, 23, 41, 55];
+const valoresPermitidosTop = [24, 30, 40, 41, 52]
 function BlockOptions({  onClick }) {
    
     return(
@@ -128,6 +128,7 @@ const SliderComponent = ({ valoresPermitidos, valorSlider, setValorSlider }) => 
 
 export function Body() {
     const [valorSlider, setValorSlider] = useState(valoresPermitidos[0]); // Inicializa com o primeiro valor permitido
+    const [valorSliderTop, setValorSliderTop] = useState(valoresPermitidos[0]); // Inicializa com o primeiro valor permitido
 
     const [isLayerOpen, setIsLayerOpen] = useState(false);
     const [isLayerOpenTOP, setIsLayerOpenTOP] = useState(false);
@@ -165,6 +166,7 @@ export function Body() {
         setFloor(event.target.checked ? 'Sim' : 'Não');
     }
     
+    
     return (
         <>
       
@@ -172,13 +174,15 @@ export function Body() {
 
          <div className='d3_' >
          {selectedOption === 'Chantininho' && (
+            
             <Canvas shadows async>
-                <Experience></Experience>
+                <Experience name={name} surname={surname}></Experience>
             </Canvas>
+            
          )}
          {selectedOption === 'Acetato' && (
             <Canvas shadows async>
-                <ExperienceAcetato/>
+                <ExperienceAcetato name={name} surname={surname}/>
             </Canvas>
          )}
 
@@ -191,7 +195,7 @@ export function Body() {
                     <div className='resultSlice'>
                         <div>
                             <h1 className='poetsenTxt txtfont'>Fatias</h1>
-                             <h1 className='poetsenTxt txtfontP'>{valorSlider} </h1>
+                             <h1 className='poetsenTxt txtfontP'>{valorSlider + (floor === "Sim" ? valorSliderTop : 0 )} </h1>
                         </div>
                         
                         <div>
@@ -312,9 +316,24 @@ export function Body() {
               <h1 className='poetsenTxt txtslice'>TAMANHO DO BOLO?</h1>
             </div>
             <div className='box_option_cakecover_right flexcolum'>
-            <SliderComponent valoresPermitidos={[20, 23, 41, 55]} valorSlider={valorSlider} setValorSlider={setValorSlider}/>
+            
+            <div className="slider-value poetsenTxt">
+                         BOLO
+                    </div>
+            <SliderComponent valoresPermitidos={valoresPermitidos} valorSlider={valorSlider} setValorSlider={setValorSlider}/>
 
             </div>
+                {floor === "Sim" && (
+                    <div className='box_option_cakecover_right flexcolum'>
+                
+                    <div className="slider-value poetsenTxt">
+                                ANDAR
+                            </div>
+                    <SliderComponent valoresPermitidos={valoresPermitidosTop} valorSlider={valorSliderTop} setValorSlider={setValorSliderTop}/>
+        
+                    </div>
+
+            )}
           </div>
            
       

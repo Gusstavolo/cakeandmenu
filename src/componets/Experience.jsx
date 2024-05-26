@@ -119,7 +119,7 @@ useGLTF.preload('/models/boloacetato.glb')
 
 
 
-export const Experience = () => {
+export const Experience = ({name, surname}) => {
  
   const meshRef = useRef();
   
@@ -141,7 +141,7 @@ export const Experience = () => {
        
       <Cake3d  position={[0, 1.48, 0.8]} rotation={[0.3, 3, 0]} />
       <group rotation={[0.3, 0, 0]} position={[0, 2.42, 1.1]}  ref={meshRef} >
-          <mesh position={[0, 0.08, -0.06]}>
+          <mesh position={[-0.2, 0.08, -0.06]}>
             <Center >
               <Text3D 
               font={fontpoets} 
@@ -154,27 +154,27 @@ export const Experience = () => {
               bevelSize={0.02}
               bevelSegments={5}
             >
-              Gustavo
+              {name}
             <meshStandardMaterial color="#b34458"    />
           </Text3D>
           </Center>
         </mesh>
-        <mesh position={[0, 0.01, -0.06]}>
+        <mesh position={[-0.2, 0, -0.06]}>
           <Center >
-              <Text3D 
-              font={fontpoets} 
-              scale={0.078} 
-            maxWidth={[-w / 5, -h * 2, 3]}
-            height={0.2}
-            curveSegments={12}
-            bevelEnabled={true}
-            bevelThickness={0.01}
-            bevelSize={0.02}
-            bevelSegments={5}
-            >
-              oliveira
-            <meshStandardMaterial color="#b34458"    />
-          </Text3D>
+                <Text3D 
+                font={fontpoets} 
+                scale={0.078} 
+              maxWidth={[-w / 5, -h * 2, 3]}
+              height={0.2}
+              curveSegments={12}
+              bevelEnabled={true}
+              bevelThickness={0.01}
+              bevelSize={0.02}
+              bevelSegments={5}
+              >
+                {surname}
+              <meshStandardMaterial color="#b34458"    />
+            </Text3D>
           </Center>
         </mesh>
         <mesh position={[0, -0.05, -0.02]}>
@@ -205,7 +205,7 @@ export const Experience = () => {
             
     )
 }
-export const ExperienceAcetato = () => {
+export const ExperienceAcetato = ({name}) => {
  
   const meshRef = useRef();
   
@@ -240,7 +240,7 @@ export const ExperienceAcetato = () => {
               bevelSize={0.02}
               bevelSegments={5}
             >
-              Gustavo
+              {name}
             <meshStandardMaterial color="#b34458"    />
           </Text3D>
           </Center>
