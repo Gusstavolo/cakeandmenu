@@ -269,7 +269,7 @@ export const ExperienceChantininhoTop = () => {
 
 
 
-export const ExperienceAcetato = ({name}) => {
+export const ExperienceAcetato = ({name, surname, age}) => {
  
   const meshRef = useRef();
   
@@ -322,7 +322,7 @@ export const ExperienceAcetato = ({name}) => {
             bevelSize={0.02}
             bevelSegments={5}
             >
-              oliveira
+              {surname}
             <meshStandardMaterial color="#b34458"    />
           </Text3D>
           </Center>
@@ -340,7 +340,7 @@ export const ExperienceAcetato = ({name}) => {
           bevelSize={0.02}
           bevelSegments={5}
           >
-            19
+            {age}
           <meshStandardMaterial color="#b34458"    />
         </Text3D>
         </Center>

@@ -2,7 +2,7 @@ import '../App.css';
 import'../index.css';
 import { Canvas } from '@react-three/fiber';
 import { Experience, OverlaySlice, ExperienceAcetato, ExperienceChantininhoTop } from './Experience';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const valoresPermitidos = [20, 23, 41, 55];
 const valoresPermitidosTop = [24, 30, 40, 41, 52]
@@ -139,6 +139,11 @@ export function Body() {
     const [floor, setFloor] = useState('Não');
 
    
+    useEffect(() => {
+        if (selectedOption === 'Acetato') {
+            setFloor('Não');
+        }
+    }, [selectedOption]);
 
     const toggleLayer = () => {
         setIsLayerOpen(!isLayerOpen);
@@ -345,7 +350,40 @@ export function Body() {
       
         </>
       )}
- 
+  {selectedOption === 'Acetato' && (
+        <>
+          
+          
+         
+        
+         <div className='box_option_cakecover'>
+            <div className='box_option_cakecover_left'>
+              <h1 className='poetsenTxt txtslice'>TAMANHO DO BOLO?</h1>
+            </div>
+            <div className='box_option_cakecover_right flexcolum'>
+            
+            <div className="slider-value poetsenTxt">
+                         BOLO
+                    </div>
+            <SliderComponent valoresPermitidos={valoresPermitidos} valorSlider={valorSlider} setValorSlider={setValorSlider}/>
+
+            </div>
+                {floor === "Sim" && (
+                    <div className='box_option_cakecover_right flexcolum'>
+                
+                    <div className="slider-value poetsenTxt">
+                                ANDAR
+                            </div>
+                    <SliderComponent valoresPermitidos={valoresPermitidosTop} valorSlider={valorSliderTop} setValorSlider={setValorSliderTop}/>
+        
+                    </div>
+
+            )}
+          </div>
+           
+      
+        </>
+      )}
                         
                         
                         
