@@ -202,7 +202,14 @@ export function Body() {
 
 
             <div className='options_main'>
+            <div className='cakeoption_main'>
+                <div className='cakeoption poetsenTxt'>
+                   {selectedOption}
+                </div>
+                
+                </div>
                 <div className='options_main_top'>
+                    
                     <div className='resultSlice'>
                         <div>
                             <h1 className='poetsenTxt txtfont'>Fatias</h1>
@@ -218,7 +225,9 @@ export function Body() {
                         <h1 className='poetsenTxt txtfont'>Total</h1>
                         <h1 className='poetsenTxt txtfontP'>R$ 154,50</h1>
                     </div>
+                    
                 </div>
+                
 
 
                 <div className='options_main_botton'>
@@ -239,16 +248,16 @@ export function Body() {
 
                      
                         <div className='box_option_cakecover' onClick={toggleOptions}> 
-                        <div className="box_option_cakecover_left">
-                        <h1 className="poetsenTxt txtslice">OPÇÕES</h1>
-                        </div>
+                            <div className="box_option_cakecover_left">
+                                <h1 className="poetsenTxt txtslice">OPÇÕES</h1>
+                            </div>
 
-                        <div className="box_option_cakecover_right">
+                            <div className="box_option_cakecover_right">
 
-                          <h1 className="poetsenTxt txtslice">{selectedOption || 'Selecionar'}</h1>
-                        <svg className='icon_menu' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                                <h1 className="poetsenTxt txtslice">{selectedOption || 'Selecionar'}</h1>
+                                <svg className='icon_menu' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
 
-                        </div>
+                            </div>
                     </div>
                     {isOpen && (
                         
