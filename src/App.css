@@ -470,6 +470,8 @@
   
   align-items: center;
   z-index: 1000;
+  box-shadow: 0px 0px 75px 55px #ebbac3 inset;
+  background-color: #f3d1d7;
 }
 
 .layer_filling div {
@@ -492,7 +494,8 @@
   flex-direction: column;
   
   align-items: center;
- 
+  
+
   
 }
 .cakeoption_main {
@@ -598,7 +601,7 @@
   
   
   width: 100vw;
-  height: 200px;
+  height: 130px;
   
   align-items: center;
   border: #b34458 solid ;
@@ -610,6 +613,39 @@
 .range_number {
   display: flex;
  
+}
+.footer_option_main {
+  display: flex;
+  
+  bottom: 5vh;
+}
+.footer_option {
+  display: flex;
+}
+.botton_close {
+  display: flex;
+  background-color:#c05f71;
+  padding: 10px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  transition: 1s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.329);
+
+}
+.botton_close:hover {
+  font-size: 1.3rem;
+}
+.a_left:hover{
+  transition: 1s;
+
+  position: relative;
+  left: 10px;
+}
+.a_right:hover{
+  transition: 1s;
+
+  position: relative;
+  left: -10px;
 }
 
 

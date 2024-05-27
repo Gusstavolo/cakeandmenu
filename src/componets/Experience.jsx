@@ -59,32 +59,42 @@ export function Cake3d(props) {
 
 useGLTF.preload('/models/bolonew.glb')
 
-export function CakeSlice(props) {
-  const { nodes, materials } = useGLTF('/models/boloslice.glb')
+export function SliceCakechant(props) {
+  const { nodes, materials } = useGLTF('/models/slicecake.glb')
   const meshRef = useRef();
+  
 
   useFrame(() => {
     if (meshRef.current) {
-      meshRef.current.rotation.y += 0.002;
+      meshRef.current.rotation.y += 0.007;
     }
   });
   return (
     <group ref={meshRef} {...props} dispose={null}>
-      <group rotation={[Math.PI / 2, 0, 0]} scale={0.81}>
-        <mesh castShadow receiveShadow geometry={nodes.Circle008.geometry} material={materials.bolo1} />
-        <mesh castShadow receiveShadow geometry={nodes.Circle008_1.geometry} material={materials.recheio} />
-      </group>
-     
-      <mesh castShadow receiveShadow geometry={nodes.strawberry008.geometry} material={materials['Strawberry.001']} rotation={[0.311, 0, Math.PI / 2]} scale={0.008} />
-      <mesh castShadow receiveShadow geometry={nodes.BRIGADEIRO006.geometry} material={materials['brigaderio.001']} scale={0.082} />
-      <mesh castShadow receiveShadow geometry={nodes.BRIGADEIRO007.geometry} material={materials['brigaderio.001']} scale={0.076} />
-      <mesh castShadow receiveShadow geometry={nodes.BRIGADEIRO008.geometry} material={materials['brigaderio.001']} scale={0.068} />
-      <mesh castShadow receiveShadow geometry={nodes.Circle001.geometry} material={materials.cobertura} rotation={[Math.PI / 2, 0, 0]} scale={0.81} />
+      <mesh geometry={nodes.Cube.geometry} material={materials.bolo1} position={[0, 0.26, 0]} scale={[0.416, 0.298, 0.416]} />
+      <mesh geometry={nodes.Cube002.geometry} material={materials['Material.011']} position={[0, 0.26, -0.019]} scale={[0.416, 0.298, 0.416]} />
+      <mesh geometry={nodes.Cube003.geometry} material={materials.bolo3} position={[0, 0.26, 0]} scale={[0.416, 0.298, 0.416]} />
+      <mesh geometry={nodes.Cube001.geometry} material={materials['Material.011']} position={[0, -0.023, -0.019]} scale={[0.416, 0.339, 0.416]} />
     </group>
   )
 }
 
-useGLTF.preload('/models/boloslice.glb')
+useGLTF.preload('/models/slicecake.glb')
+
+export function SliceCakeAcetato(props) {
+  const { nodes, materials } = useGLTF('/models/slicecakeacetato.glb')
+  return (
+    <group {...props} dispose={null}>
+      <mesh geometry={nodes.cobertura1001.geometry} material={materials['Material.003']} position={[0, -0.023, -0.019]} scale={[0.416, 0.339, 0.416]} />
+      <mesh geometry={nodes.bolobase001.geometry} material={materials['bolo1.001']} position={[0, 0.26, 0]} scale={[0.416, 0.298, 0.416]} />
+      <mesh geometry={nodes.bolobase002.geometry} material={materials['Material.001']} position={[0, 0.26, 0]} scale={[0.416, 0.298, 0.416]} />
+      <mesh geometry={nodes.bolobase003.geometry} material={materials['bolo1.001']} position={[0, 0.26, 0]} scale={[0.416, 0.298, 0.416]} />
+      <mesh geometry={nodes.bolobase004.geometry} material={materials['bolo3.001']} position={[0, 0.26, 0]} scale={[0.416, 0.298, 0.416]} />
+    </group>
+  )
+}
+
+useGLTF.preload('/models/slicecakeacetato.glb')
 
 
 export function CakeAcetato(props) {
@@ -137,6 +147,7 @@ export function CakeChantininho(props) {
 }
 
 useGLTF.preload('/models/bolochantininhobase.glb')
+
 export function CakeChantininhoTop(props) {
   const { nodes, materials } = useGLTF('/models/bolochantininhobase.glb')
   const meshRef = useRef();
@@ -355,12 +366,39 @@ export const ExperienceAcetato = ({name, surname, age}) => {
             
     )
 }
+
 export function OverlaySlice() {
     
   return(
      <Canvas shadows>
      <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
-      <pointLight intensity={20} position={[0, 0, 3]}></pointLight>
+      <ambientLight intensity={1}></ambientLight>
+      
+      <directionalLight castShadow
+    
+       intensity={3}
+       position={[0, -2, 1.5]}
+       
+      ></directionalLight>
+      <directionalLight castShadow
+    
+    intensity={5}
+    position={[0, 5, 3]} />
+    
+   
+    
+      <SliceCakechant  position={[0, 1.9, 0.8]} rotation={[0.6, 0.9, 0]} />
+        
+     </Canvas>
+  )
+}
+
+export function OverlaySliceAcetato() {
+    
+  return(
+     <Canvas shadows>
+     <PerspectiveCamera makeDefault rotation={[0, 0, 0]} position={[0, 2, 2.7]} />
+      <ambientLight intensity={1}></ambientLight>
       <directionalLight castShadow
     
        intensity={5}
@@ -374,7 +412,7 @@ export function OverlaySlice() {
     
    
     
-      <CakeSlice  position={[0, 1.9, 1.4]} rotation={[0.6, 0.9, 0]} />
+      <SliceCakeAcetato  position={[0, 1.9, 0.8]} rotation={[0.6, 0.9, 0]} />
         
      </Canvas>
   )

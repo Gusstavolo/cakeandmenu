@@ -1,8 +1,9 @@
 import '../App.css';
 import'../index.css';
 import { Canvas } from '@react-three/fiber';
-import { Experience, OverlaySlice, ExperienceAcetato, ExperienceChantininhoTop } from './Experience';
+import { Experience, OverlaySlice, ExperienceAcetato, ExperienceChantininhoTop,OverlaySliceAcetato } from './Experience';
 import React, { useState, useRef, useEffect } from 'react';
+import { rotate } from 'three/examples/jsm/nodes/Nodes.js';
 
 const valoresPermitidos = [20, 23, 41, 55];
 const valoresPermitidosTop = [24, 30, 40, 41, 52]
@@ -361,10 +362,7 @@ export function Body() {
       )}
   {selectedOption === 'Acetato' && (
         <>
-          
-          
-         
-        
+
          <div className='box_option_cakecover'>
             <div className='box_option_cakecover_left'>
               <h1 className='poetsenTxt txtslice'>TAMANHO DO BOLO?</h1>
@@ -396,9 +394,19 @@ export function Body() {
                         
                         
                         
-                     
+                     <footer className='footer_option_main'>
+                            <div className='footer_option'>
 
-                    <button onClick={toggleLayerTOP}>Fechar</button>
+                                    <div className=" botton_close poetsenTxt" onClick={toggleLayerTOP}>Visualizar bolo</div>
+                                    
+                                    <div className='botton_close a_left' onClick={() => { 
+                                        toggleLayerTOP(); 
+                                        toggleLayer(); 
+                                    }}><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg></div>                           
+                             </div>
+
+                     </footer>
+                   
                      </div>
                     
                     
@@ -408,14 +416,45 @@ export function Body() {
                         
             {isLayerOpen && (
                 <div className="layer_filling">
-                     <div className="layer_filling_top">
-                        
-                           <OverlaySlice></OverlaySlice> 
-                        
+                    {selectedOption === "Chantininho" && (
+
+                    <div className="layer_filling_top">
+                                            
+                        <OverlaySlice></OverlaySlice> 
+                                            
+                    </div>
+
+
+                    )}
+                    
+                      {selectedOption === "Acetato" && (
+
+                        <div className="layer_filling_top">
+                                                
+                            <OverlaySliceAcetato />
+                                                
                         </div>
+
+
+                        )}
+                     
                     
                     
-                    <button onClick={toggleLayer}>Fechar</button>
+                    
+                    <footer className='footer_option_main'>
+                          <div className='botton_close a_right' style={{ transform: 'rotate(180deg)' }} onClick={() => { 
+                                        toggleLayer(); 
+                                        toggleLayerTOP(); 
+                                      
+                                    }}><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg></div>                           
+
+                            <div className='footer_option'>
+
+                                    <div className=" botton_close poetsenTxt" onClick={toggleLayer}>Visualizar bolo</div>
+                                    
+                             </div>
+
+                     </footer>
                 </div>
             )}
             
